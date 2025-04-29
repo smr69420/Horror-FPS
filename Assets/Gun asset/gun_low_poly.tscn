@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh5ixtd38tvgt"]
+
+[ext_resource type="PackedScene" uid="uid://brfp6iiiqvbxn" path="res://Assets/Gun asset/scene.gltf" id="1_gk2jm"]
+
+[node name="Gun_low_poly" instance=ExtResource("1_gk2jm")]
+
+[node name="Object_9" parent="Sketchfab_model/Pistol PS1 Style_3ds/PistolPS1_" index="0"]
+visible = false

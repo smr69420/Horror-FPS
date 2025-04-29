@@ -1,0 +1,473 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 52,
+      "max": [
+        -83.25110626220703,
+        35.76666259765625,
+        251.8300018310547
+      ],
+      "min": [
+        -271.5730895996094,
+        -35.76666259765625,
+        1.3823356628417969
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 624,
+      "componentType": 5126,
+      "count": 52,
+      "max": [
+        0.9901962280273438,
+        0.9991422891616821,
+        0.9183377027511597
+      ],
+      "min": [
+        -0.9371157288551331,
+        -0.999244213104248,
+        -0.49882346391677856
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 52,
+      "max": [
+        0.788632333278656,
+        0.6773346066474915
+      ],
+      "min": [
+        0.6632956862449646,
+        0.5519979596138
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 228,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1248,
+      "componentType": 5126,
+      "count": 706,
+      "max": [
+        238.35748291015625,
+        43.455101013183594,
+        343.9305419921875
+      ],
+      "min": [
+        -278.137939453125,
+        -43.455101013183594,
+        19.793628692626953
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 9720,
+      "componentType": 5126,
+      "count": 706,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 416,
+      "componentType": 5126,
+      "count": 706,
+      "max": [
+        0.9288151264190674,
+        0.8209903836250305
+      ],
+      "min": [
+        0.015464101918041706,
+        0.1749882698059082
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 912,
+      "componentType": 5125,
+      "count": 1488,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 18192,
+      "componentType": 5126,
+      "count": 130,
+      "max": [
+        17.136703491210938,
+        14.840821266174316,
+        115.86322784423828
+      ],
+      "min": [
+        -17.136703491210938,
+        -14.840821266174316,
+        0.10697587579488754
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 19752,
+      "componentType": 5126,
+      "count": 130,
+      "max": [
+        1.0,
+        1.0,
+        0.9851691722869873
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 6064,
+      "componentType": 5126,
+      "count": 130,
+      "max": [
+        0.6966477036476135,
+        0.9535308480262756
+      ],
+      "min": [
+        0.2505459487438202,
+        0.16540765762329102
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 6864,
+      "componentType": 5125,
+      "count": 324,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "scfc9833 (https://sketchfab.com/scfc9833)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/pistol-ps1-style-ae7f5cfdbb6b40efad4ee882808dd948",
+      "title": "Pistol PS1 Style"
+    },
+    "generator": "Sketchfab-16.9.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 8160,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 7104,
+      "byteOffset": 8160,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 21312,
+      "byteOffset": 15264,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 36576,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Texture_baseColor.png"
+    },
+    {
+      "uri": "textures/Bullet_baseColor.png"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Texture",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.6
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "material",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.25
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Bullet",
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.0
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Object_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Object_1",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Object_2",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 9,
+            "POSITION": 8,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        0.004534934647381306,
+        7.292731000088708e-19,
+        7.292731000088712e-19,
+        0.0,
+        7.29273100008871e-19,
+        1.736230872147489e-18,
+        -0.004534934647381306,
+        0.0,
+        -7.29273100008871e-19,
+        0.004534934647381306,
+        1.736230872147489e-18,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "Pistol PS1 Style.3ds"
+    },
+    {
+      "children": [
+        9,
+        3,
+        6
+      ],
+      "name": "PistolPS1_"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        0.93117755651474,
+        0.0,
+        -0.36456605792045593,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.36456605792045593,
+        0.0,
+        0.93117755651474,
+        0.0,
+        -169.71697998046875,
+        0.0,
+        112.545166015625,
+        1.0
+      ],
+      "name": "Magazine"
+    },
+    {
+      "children": [
+        5
+      ],
+      "matrix": [
+        0.9311775077727906,
+        -0.0,
+        0.364566038837457,
+        0.0,
+        0.0,
+        1.0,
+        -0.0,
+        0.0,
+        -0.364566038837457,
+        0.0,
+        0.9311775077727906,
+        0.0,
+        199.06677980955786,
+        -0.0,
+        -42.92648008736918,
+        1.0
+      ],
+      "name": "3DSMeshMatrix"
+    },
+    {
+      "mesh": 0,
+      "name": "Object_5"
+    },
+    {
+      "children": [
+        7
+      ],
+      "matrix": [
+        0.9396926164627075,
+        0.0,
+        -0.3420201539993286,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.3420201539993286,
+        0.0,
+        0.9396926164627075,
+        0.0,
+        -137.98849487304688,
+        0.0,
+        202.4694061279297,
+        1.0
+      ],
+      "name": "Pistol"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        0.9396926172367759,
+        -0.0,
+        0.34202015428106647,
+        0.0,
+        0.0,
+        1.0,
+        -0.0,
+        0.0,
+        -0.34202015428106647,
+        0.0,
+        0.9396926172367759,
+        0.0,
+        198.91538741688726,
+        -0.0,
+        -143.0641598492383,
+        1.0
+      ],
+      "name": "3DSMeshMatrix"
+    },
+    {
+      "mesh": 1,
+      "name": "Object_8"
+    },
+    {
+      "mesh": 2,
+      "name": "Object_9"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 33071,
+      "wrapT": 33071
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    }
+  ]
+}
