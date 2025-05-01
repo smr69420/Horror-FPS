@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_oejln"]
 [ext_resource type="Script" path="res://Player/SmoothCamera.gd" id="2_3tryo"]
-[ext_resource type="PackedScene" uid="uid://bh5ixtd38tvgt" path="res://Assets/Gun asset/gun_low_poly.tscn" id="3_ankks"]
 [ext_resource type="Script" path="res://Player/Crosshair.gd" id="3_e4a8x"]
+[ext_resource type="PackedScene" uid="uid://cmb531kpaffyu" path="res://Assets/Gun asset/gun_with_timer.tscn" id="3_pp6ke"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bomeq"]
 
@@ -25,8 +25,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 top_level = true
 script = ExtResource("2_3tryo")
 
-[node name="Gun_low_poly" parent="CameraPivot/SmoothCamera" instance=ExtResource("3_ankks")]
-transform = Transform3D(0.0517638, 0, 0.193185, 0, 0.2, 0, -0.193185, 0, 0.0517638, 0.995, -0.6, -0.889)
+[node name="Gun with cooldown" parent="CameraPivot/SmoothCamera" instance=ExtResource("3_pp6ke")]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
