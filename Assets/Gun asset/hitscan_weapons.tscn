@@ -7,3 +7,6 @@ script = ExtResource("1_kg0te")
 fire_rate = 2.0
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -50)

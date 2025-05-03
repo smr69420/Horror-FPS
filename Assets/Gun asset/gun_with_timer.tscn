@@ -1,7 +1,68 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmb531kpaffyu"]
+[gd_scene load_steps=6 format=3 uid="uid://cmb531kpaffyu"]
 
 [ext_resource type="PackedScene" uid="uid://dl2r2gbyfxxup" path="res://Assets/Gun asset/hitscan_weapons.tscn" id="1_gcu4l"]
 [ext_resource type="PackedScene" uid="uid://bh5ixtd38tvgt" path="res://Assets/Gun asset/gun_low_poly.tscn" id="2_i2icq"]
+
+[sub_resource type="Animation" id="Animation_fuayl"]
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun_low_poly:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.995, -0.6, -0.889)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun_low_poly:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.309, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3ir67"]
+resource_name = "Recoil"
+length = 0.12
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun_low_poly:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.995, -0.6, -0.889), Vector3(0.995, -0.6, -0.859)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun_low_poly:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.309, 0), Vector3(0, 1.309, 0.261799), Vector3(0, 1.309, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jp6r5"]
+_data = {
+"RESET": SubResource("Animation_fuayl"),
+"Recoil": SubResource("Animation_3ir67")
+}
 
 [node name="HitscanWeapons" node_paths=PackedStringArray("weapon_mesh") instance=ExtResource("1_gcu4l")]
 weapon_mesh = NodePath("Gun_low_poly")
@@ -11,4 +72,10 @@ one_shot = true
 autostart = true
 
 [node name="Gun_low_poly" parent="." index="1" instance=ExtResource("2_i2icq")]
-transform = Transform3D(0.0517638, 0, 0.193185, 0, 0.2, 0, -0.193185, 0, 0.0517638, 0.995, -0.6, -0.889)
+transform = Transform3D(0.0517632, 0, 0.193185, 0, 0.2, 0, -0.193185, 0, 0.0517632, 0.995, -0.6, -0.859)
+
+[node name="Recoil" type="AnimationPlayer" parent="." index="2"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_jp6r5")
+}

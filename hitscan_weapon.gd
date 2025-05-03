@@ -1,9 +1,12 @@
 extends Node3D
 
 @onready var timer:Timer=$Timer
+@onready var recoil_animation:AnimationPlayer=$Recoil
+@onready var raycast:RayCast3D=$RayCast3D
 
 @export var fire_rate:=14.0
 @export var recoil:=0.05
+@export var weapon_damage:int=20
 @export var weapon_mesh:Node3D
 
 # Called when the node enters the scene tree for the first time.
@@ -19,5 +22,11 @@ func _process(_delta: float) -> void:
 
 
 func shoot() -> void:
+	var collider=raycast.get_collider()
+	
 	timer.start(1.0/fire_rate)
-	print("weapon fired")
+	printt("weapon fired",collider)
+	recoil_animation.play("Recoil")
+	if collider is Enemy:
+		collider.current_health-=weapon_damage
+		
