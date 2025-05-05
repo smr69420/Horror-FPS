@@ -1,7 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmb531kpaffyu"]
+[gd_scene load_steps=9 format=3 uid="uid://cmb531kpaffyu"]
 
 [ext_resource type="PackedScene" uid="uid://dl2r2gbyfxxup" path="res://Assets/Gun asset/hitscan_weapons.tscn" id="1_gcu4l"]
 [ext_resource type="PackedScene" uid="uid://bh5ixtd38tvgt" path="res://Assets/Gun asset/gun_low_poly.tscn" id="2_i2icq"]
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_pk703"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1nv4m"]
+directional_velocity_min = 1.0
+directional_velocity_max = 1.0
+directional_velocity_curve = SubResource("CurveXYZTexture_pk703")
+radial_velocity_min = 4.99998
+radial_velocity_max = 4.99998
+gravity = Vector3(0, 0, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_o7m4s"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="Animation" id="Animation_fuayl"]
 length = 0.25
@@ -72,7 +85,14 @@ one_shot = true
 autostart = true
 
 [node name="Gun_low_poly" parent="." index="1" instance=ExtResource("2_i2icq")]
-transform = Transform3D(0.0517632, 0, 0.193185, 0, 0.2, 0, -0.193185, 0, 0.0517632, 0.995, -0.6, -0.859)
+transform = Transform3D(0.0517631, 0, 0.193185, 0, 0.2, 0, -0.193185, 0, 0.0517631, 0.995, -0.6, -0.889)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Gun_low_poly" index="1"]
+transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 1.37752, 1.41722, -0.0752366)
+amount = 1
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_1nv4m")
+draw_pass_1 = SubResource("BoxMesh_o7m4s")
 
 [node name="Recoil" type="AnimationPlayer" parent="." index="2"]
 reset_on_save = false

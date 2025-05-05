@@ -11,7 +11,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @export var attack_range:float=1.5
 @export var max_health:int=100
-
+@export var attacking_power:=20
 
 var player
 var provoked:=false
@@ -26,7 +26,7 @@ var current_health:int=max_health:
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	navigation_agent_3d.target_position = player.global_position
 
 func _physics_process(delta: float) -> void:
@@ -41,8 +41,8 @@ func _physics_process(delta: float) -> void:
 	if provoked==true:
 		if attack_range>distance:
 			animation_player.play("Attack")
-		#make the character rotate
-		look_at_target(direction)
+			
+		look_at_target(direction) #make the character rotate
 		if direction:
 			velocity.x = direction.x * SPEED
 			velocity.z = direction.z * SPEED
@@ -66,3 +66,4 @@ func look_at_target(direction:Vector3) -> void:
 		look_at(global_position+adjusted_direction,Vector3.UP,true) #adding it bcz look at funcn uses global position
 func attacked() -> void:
 	print("dead lmao")
+	player.current_health-=attacking_power
