@@ -23,7 +23,9 @@ func _process(_delta: float) -> void:
 
 func shoot() -> void:
 	var collider=raycast.get_collider()
+	var flash:GPUParticles3D=$Gun_low_poly/Flash
 	
+	flash.restart()
 	timer.start(1.0/fire_rate)
 	printt("weapon fired",collider)
 	recoil_animation.play("Recoil")

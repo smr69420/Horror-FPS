@@ -1,17 +1,26 @@
-[gd_scene load_steps=9 format=3 uid="uid://cmb531kpaffyu"]
+[gd_scene load_steps=11 format=3 uid="uid://cmb531kpaffyu"]
 
 [ext_resource type="PackedScene" uid="uid://dl2r2gbyfxxup" path="res://Assets/Gun asset/hitscan_weapons.tscn" id="1_gcu4l"]
 [ext_resource type="PackedScene" uid="uid://bh5ixtd38tvgt" path="res://Assets/Gun asset/gun_low_poly.tscn" id="2_i2icq"]
 
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_pk703"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgy3f"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="Curve" id="Curve_8ykds"]
+_data = [Vector2(0, 0.868132), 0.0, 1.4, 0, 0, Vector2(0.99999, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_w13ei"]
+curve = SubResource("Curve_8ykds")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1nv4m"]
-directional_velocity_min = 1.0
-directional_velocity_max = 1.0
-directional_velocity_curve = SubResource("CurveXYZTexture_pk703")
-radial_velocity_min = 4.99998
-radial_velocity_max = 4.99998
+spread = 5.0
+initial_velocity_min = 6.0
+initial_velocity_max = 8.0
 gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_w13ei")
 
 [sub_resource type="BoxMesh" id="BoxMesh_o7m4s"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -78,6 +87,7 @@ _data = {
 }
 
 [node name="HitscanWeapons" node_paths=PackedStringArray("weapon_mesh") instance=ExtResource("1_gcu4l")]
+fire_rate = 14.0
 weapon_mesh = NodePath("Gun_low_poly")
 
 [node name="Timer" parent="." index="0"]
@@ -87,10 +97,15 @@ autostart = true
 [node name="Gun_low_poly" parent="." index="1" instance=ExtResource("2_i2icq")]
 transform = Transform3D(0.0517631, 0, 0.193185, 0, 0.2, 0, -0.193185, 0, 0.0517631, 0.995, -0.6, -0.889)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Gun_low_poly" index="1"]
+[node name="Flash" type="GPUParticles3D" parent="Gun_low_poly" index="1"]
 transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 1.37752, 1.41722, -0.0752366)
-amount = 1
+material_override = SubResource("StandardMaterial3D_kgy3f")
+cast_shadow = 0
+emitting = false
+lifetime = 0.07
+one_shot = true
 explosiveness = 1.0
+local_coords = true
 process_material = SubResource("ParticleProcessMaterial_1nv4m")
 draw_pass_1 = SubResource("BoxMesh_o7m4s")
 
