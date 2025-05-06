@@ -3,6 +3,7 @@ extends Node3D
 @onready var timer:Timer=$Timer
 @onready var recoil_animation:AnimationPlayer=$Recoil
 @onready var raycast:RayCast3D=$RayCast3D
+@onready var sparks:GPUParticles3D=$Sparks
 
 @export var fire_rate:=14.0
 @export var recoil:=0.05
@@ -31,4 +32,7 @@ func shoot() -> void:
 	recoil_animation.play("Recoil")
 	if collider is Enemy:
 		collider.current_health-=weapon_damage
+	if collider is CSGBox3D:
+		sparks.global_position=raycast.get_collision_point()
+		sparks.emitting=true
 		

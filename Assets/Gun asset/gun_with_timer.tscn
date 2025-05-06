@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmb531kpaffyu"]
+[gd_scene load_steps=12 format=3 uid="uid://cmb531kpaffyu"]
 
 [ext_resource type="PackedScene" uid="uid://dl2r2gbyfxxup" path="res://Assets/Gun asset/hitscan_weapons.tscn" id="1_gcu4l"]
 [ext_resource type="PackedScene" uid="uid://bh5ixtd38tvgt" path="res://Assets/Gun asset/gun_low_poly.tscn" id="2_i2icq"]
+[ext_resource type="PackedScene" uid="uid://5g00u6kbtqpk" path="res://Assets/Gun asset/sparks.tscn" id="3_t0ruh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kgy3f"]
 emission_enabled = true
@@ -114,3 +115,5 @@ reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_jp6r5")
 }
+
+[node name="Sparks" parent="." index="4" instance=ExtResource("3_t0ruh")]
