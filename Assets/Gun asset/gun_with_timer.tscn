@@ -88,7 +88,6 @@ _data = {
 }
 
 [node name="HitscanWeapons" node_paths=PackedStringArray("weapon_mesh") instance=ExtResource("1_gcu4l")]
-fire_rate = 14.0
 weapon_mesh = NodePath("Gun_low_poly")
 
 [node name="Timer" parent="." index="0"]
@@ -97,6 +96,12 @@ autostart = true
 
 [node name="Gun_low_poly" parent="." index="1" instance=ExtResource("2_i2icq")]
 transform = Transform3D(0.0517631, 0, 0.193185, 0, 0.2, 0, -0.193185, 0, 0.0517631, 0.995, -0.6, -0.889)
+
+[node name="Object_5" parent="Gun_low_poly/Sketchfab_model/Pistol PS1 Style_3ds/PistolPS1_/Magazine/3DSMeshMatrix" index="0"]
+layers = 2
+
+[node name="Object_8" parent="Gun_low_poly/Sketchfab_model/Pistol PS1 Style_3ds/PistolPS1_/Pistol/3DSMeshMatrix2" index="0"]
+layers = 2
 
 [node name="Flash" type="GPUParticles3D" parent="Gun_low_poly" index="1"]
 transform = Transform3D(1, 0, -4.47035e-08, 0, 1, 0, 4.47035e-08, 0, 1, 1.37752, 1.41722, -0.0752366)
@@ -117,3 +122,5 @@ libraries = {
 }
 
 [node name="Sparks" parent="." index="4" instance=ExtResource("3_t0ruh")]
+
+[editable path="Gun_low_poly"]

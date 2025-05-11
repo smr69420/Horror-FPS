@@ -314,3 +314,5 @@ material = ExtResource("1_bsio1")
 
 [node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("4_u4gaq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -17)
+
+[connection signal="reduce_health" from="Player" to="Enemy" method="_on_player_reduce_health"]

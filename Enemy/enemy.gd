@@ -15,6 +15,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var player
 var provoked:=false
+var stop_attacking_after_player_death:=false
 var aggro_range :=12.0
 var current_health:int=max_health:
 	set(value):
@@ -38,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	var direction=global_position.direction_to(next_position)
 	var distance=global_position.distance_to(player.global_position)
 	
-	if provoked==true:
+	if provoked==true and stop_attacking_after_player_death==false:
 		if attack_range>distance:
 			animation_player.play("Attack")
 			
@@ -67,3 +68,6 @@ func look_at_target(direction:Vector3) -> void:
 func attacked() -> void:
 	print("dead lmao")
 	player.current_health-=attacking_power
+
+
+	

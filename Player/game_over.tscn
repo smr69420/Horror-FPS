@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctnbf8u6cydkn"]
+
+[ext_resource type="FontFile" uid="uid://cpux6o4dovlpv" path="res://Assets/Fonts/Outfit-Medium.ttf" id="1_rs6g7"]
+[ext_resource type="Script" path="res://Player/game_over.gd" id="2_jol5m"]
+
+[sub_resource type="Theme" id="Theme_0k5t2"]
+default_font = ExtResource("1_rs6g7")
+default_font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_xsx7h"]
+font_size = 64
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0k5t2")
+script = ExtResource("2_jol5m")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Death"
+label_settings = SubResource("LabelSettings_xsx7h")
+
+[node name="RestartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="EndButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "End"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/EndButton" to="." method="_on_end_button_pressed"]

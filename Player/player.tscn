@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cksbitwe7x8h3"]
+[gd_scene load_steps=8 format=3 uid="uid://cksbitwe7x8h3"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_oejln"]
 [ext_resource type="Script" path="res://Player/SmoothCamera.gd" id="2_3tryo"]
 [ext_resource type="Script" path="res://Player/Crosshair.gd" id="3_e4a8x"]
 [ext_resource type="PackedScene" uid="uid://cmb531kpaffyu" path="res://Assets/Gun asset/gun_with_timer.tscn" id="3_pp6ke"]
+[ext_resource type="PackedScene" uid="uid://ctnbf8u6cydkn" path="res://Player/game_over.tscn" id="5_maskr"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bomeq"]
 
@@ -27,6 +28,26 @@ script = ExtResource("2_3tryo")
 
 [node name="Gun with cooldown" parent="CameraPivot/SmoothCamera" instance=ExtResource("3_pp6ke")]
 
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraPivot/SmoothCamera"]
+remote_path = NodePath("../../../SubViewportContainer/SubViewport/WeaponCamera")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="WeaponCamera" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+cull_mask = 1047554
+
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -37,3 +58,6 @@ grow_vertical = 2
 [node name="Crosshair" type="Control" parent="CenterContainer"]
 layout_mode = 2
 script = ExtResource("3_e4a8x")
+
+[node name="GameOver" parent="." instance=ExtResource("5_maskr")]
+visible = false

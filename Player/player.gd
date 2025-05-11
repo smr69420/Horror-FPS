@@ -1,6 +1,4 @@
 extends CharacterBody3D
-
-
 const SPEED = 5.0
 
 @export var jump_height: float = 1.0
@@ -12,16 +10,22 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var mouse_motion := Vector2.ZERO
 
 @onready var camera_pivot: Node3D = $CameraPivot
+@onready var game_over_screen:Control=$GameOver
+
 
 var current_health:int=max_health:
 	set(value):
 		current_health=value
 		if current_health<=0:
-			get_tree().quit()
-
+			game_over_screen.visibility()
+			var enemy_instance = get_parent().get_node("Enemy")
+			if enemy_instance:
+				enemy_instance.stop_attacking_after_player_death=true
+			
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
 
 func _physics_process(delta: float) -> void:
 	handle_camera_rotation()
@@ -63,3 +67,4 @@ func handle_camera_rotation() -> void:
 		camera_pivot.rotation_degrees.x, -90.0, 90.0
 	)
 	mouse_motion = Vector2.ZERO
+	
