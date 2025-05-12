@@ -1,5 +1,6 @@
 extends CharacterBody3D
 const SPEED = 5.0
+signal stop_shooting
 
 @export var jump_height: float = 1.0
 @export var fall_multiplier: float = 2.5
@@ -23,7 +24,7 @@ var current_health:int=max_health:
 			if enemy_instance:
 				enemy_instance.stop_attacking_after_player_death=true
 				stop_taking_input=true
-
+				emit_signal("stop_shooting")
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	

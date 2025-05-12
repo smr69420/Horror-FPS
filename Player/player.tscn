@@ -61,3 +61,5 @@ script = ExtResource("3_e4a8x")
 
 [node name="GameOver" parent="." instance=ExtResource("5_maskr")]
 visible = false
+
+[connection signal="stop_shooting" from="." to="CameraPivot/SmoothCamera/Gun with cooldown" method="_on_player_stop_shooting"]

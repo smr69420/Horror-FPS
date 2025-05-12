@@ -10,6 +10,8 @@ extends Node3D
 @export var weapon_damage:int=20
 @export var weapon_mesh:Node3D
 
+var stop_shooting:=false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.start(1.0/fire_rate) # Replace with function body.
@@ -18,7 +20,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if Input.is_action_pressed("fire"):
-		if timer.is_stopped():
+		if timer.is_stopped() and stop_shooting==false:
 			shoot()
 
 
@@ -36,3 +38,7 @@ func shoot() -> void:
 		sparks.global_position=raycast.get_collision_point()
 		sparks.emitting=true
 		
+
+
+func _on_player_stop_shooting() -> void:
+	stop_shooting=true # Replace with function body.
