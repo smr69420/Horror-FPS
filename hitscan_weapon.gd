@@ -4,6 +4,7 @@ extends Node3D
 @onready var recoil_animation:AnimationPlayer=$Recoil
 @onready var raycast:RayCast3D=$RayCast3D
 @onready var sparks:GPUParticles3D=$Sparks
+@onready var retreat_time:Timer=$RetreatTime
 
 @export var fire_rate:=14.0
 @export var recoil:=0.05
@@ -41,4 +42,4 @@ func shoot() -> void:
 
 
 func _on_player_stop_shooting() -> void:
-	stop_shooting=true # Replace with function body.
+	stop_shooting=true 

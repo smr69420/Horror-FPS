@@ -108,3 +108,9 @@ mesh = SubResource("BoxMesh_plrey")
 libraries = {
 "": SubResource("AnimationLibrary_iless")
 }
+
+[node name="RetreatTime" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="RetreatTime" to="." method="_on_retreat_time_timeout"]
