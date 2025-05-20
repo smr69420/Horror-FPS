@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://brikvq0xem6h7"
-path.s3tc="res://.godot/imported/Pipes.png-3649ffc6f3072208637ca9850740df59.s3tc.ctex"
+path.s3tc="res://.godot/imported/Pipes.png-9f20ed9654485d33c4c64eee8d360c1b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Industrial_exterior_v2/textures/Pipes.png"
-dest_files=["res://.godot/imported/Pipes.png-3649ffc6f3072208637ca9850740df59.s3tc.ctex"]
+source_file="res://Assets/Textures/Industrial_exterior_v2/Textures/Pipes.png"
+dest_files=["res://.godot/imported/Pipes.png-9f20ed9654485d33c4c64eee8d360c1b.s3tc.ctex"]
 
 [params]
 

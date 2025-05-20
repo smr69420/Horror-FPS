@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csb78nb2x0pp3"
-path.s3tc="res://.godot/imported/Industrial_exterior_v2_Ventilation_1.png-c582f6474c7b233dd0a923e6156f70cb.s3tc.ctex"
+uid="uid://wel6txxdle2w"
+path.s3tc="res://.godot/imported/Horror_Wall_14-128x128.png-69fb607714de9801d9d7df31774dd2a7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "8e8f20828c8b7d2ff465916661aca6ae"
-}
 
 [deps]
 
-source_file="res://Assets/Industrial_exterior_v2_Ventilation_1.png"
-dest_files=["res://.godot/imported/Industrial_exterior_v2_Ventilation_1.png-c582f6474c7b233dd0a923e6156f70cb.s3tc.ctex"]
+source_file="res://Assets/Textures/Horror_Wall_14-128x128.png"
+dest_files=["res://.godot/imported/Horror_Wall_14-128x128.png-69fb607714de9801d9d7df31774dd2a7.s3tc.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0d3n0424outq"
-path.s3tc="res://.godot/imported/Barrel_3.png-fe4c8c0631c59fb35b1d398bf79a1a53.s3tc.ctex"
+path.s3tc="res://.godot/imported/Barrel_3.png-b41fcc502127cc1fd32daad0e3339dce.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Industrial_exterior_v2/textures/Barrel_3.png"
-dest_files=["res://.godot/imported/Barrel_3.png-fe4c8c0631c59fb35b1d398bf79a1a53.s3tc.ctex"]
+source_file="res://Assets/Textures/Industrial_exterior_v2/Textures/Barrel_3.png"
+dest_files=["res://.godot/imported/Barrel_3.png-b41fcc502127cc1fd32daad0e3339dce.s3tc.ctex"]
 
 [params]
 

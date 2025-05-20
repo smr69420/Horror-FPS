@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ch1jtgrtacci2"
-path.s3tc="res://.godot/imported/Cooling_tower.png-87ae907baebfcfba7f203a3b6854a202.s3tc.ctex"
+path.s3tc="res://.godot/imported/Cooling_tower.png-1b49d7c2e48dbba9aa78511ab39db46a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Industrial_exterior_v2/textures/Cooling_tower.png"
-dest_files=["res://.godot/imported/Cooling_tower.png-87ae907baebfcfba7f203a3b6854a202.s3tc.ctex"]
+source_file="res://Assets/Textures/Industrial_exterior_v2/Textures/Cooling_tower.png"
+dest_files=["res://.godot/imported/Cooling_tower.png-1b49d7c2e48dbba9aa78511ab39db46a.s3tc.ctex"]
 
 [params]
 

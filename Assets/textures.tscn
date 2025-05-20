@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqus2sur87oxe"]
+
+[ext_resource type="Shader" uid="uid://b048fla51bjla" path="res://Assets/Textures/textures.tres" id="1_fqs7e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q06wo"]
+size = Vector3(5, 0.065, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ahgf1"]
+render_priority = 0
+shader = ExtResource("1_fqs7e")
+
+[node name="walltexture" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_q06wo")
+surface_material_override/0 = SubResource("ShaderMaterial_ahgf1")

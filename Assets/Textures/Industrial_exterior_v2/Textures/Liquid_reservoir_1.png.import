@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://beer1tit35tqx"
-path.s3tc="res://.godot/imported/Liquid_reservoir_1.png-a86d732b82f7beee2cb110224b729fd0.s3tc.ctex"
+path.s3tc="res://.godot/imported/Liquid_reservoir_1.png-97de5131c0d98131b80b0777220d3454.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Industrial_exterior_v2/textures/Liquid_reservoir_1.png"
-dest_files=["res://.godot/imported/Liquid_reservoir_1.png-a86d732b82f7beee2cb110224b729fd0.s3tc.ctex"]
+source_file="res://Assets/Textures/Industrial_exterior_v2/Textures/Liquid_reservoir_1.png"
+dest_files=["res://.godot/imported/Liquid_reservoir_1.png-97de5131c0d98131b80b0777220d3454.s3tc.ctex"]
 
 [params]
 
