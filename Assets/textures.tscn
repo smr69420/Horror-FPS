@@ -3,7 +3,7 @@
 [ext_resource type="Shader" uid="uid://b048fla51bjla" path="res://Assets/Textures/textures.tres" id="1_fqs7e"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_q06wo"]
-size = Vector3(5, 0.065, 5)
+size = Vector3(5, 3, 5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ahgf1"]
 render_priority = 0
@@ -12,5 +12,10 @@ shader = ExtResource("1_fqs7e")
 [node name="walltexture" type="Node3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.184415, -0.0682316, 0.0471244)
+mesh = SubResource("BoxMesh_q06wo")
+surface_material_override/0 = SubResource("ShaderMaterial_ahgf1")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_q06wo")
 surface_material_override/0 = SubResource("ShaderMaterial_ahgf1")
