@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://by6o0qusaxsqp"]
+
+[ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="1_cqcw2"]
+[ext_resource type="Texture2D" uid="uid://wel6txxdle2w" path="res://Assets/Textures/Horror_Wall_14-128x128.png" id="2_tv2cf"]
+[ext_resource type="Texture2D" uid="uid://d2eg4fbxh7qeh" path="res://Assets/Textures/Horror_Metal_01-128x128.png" id="3_h5b03"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1myj"]
+render_priority = 0
+shader = ExtResource("1_cqcw2")
+shader_parameter/normal_scale = 1.0
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/main_texture_color = Color(1, 1, 1, 1)
+shader_parameter/main_uv_scale = 1.0
+shader_parameter/main_uv_offset = null
+shader_parameter/main_uv_triplanar = false
+shader_parameter/main_uv_blend_sharpness = 1.0
+shader_parameter/main_texture = ExtResource("2_tv2cf")
+shader_parameter/secondary_texture_color = Color(1, 1, 1, 1)
+shader_parameter/secondary_uv_scale = 1.0
+shader_parameter/secondary_uv_offset = null
+shader_parameter/secondary_uv_triplanar = false
+shader_parameter/secondary_uv_blend_sharpness = 1.0
+shader_parameter/secondary_texture = ExtResource("3_h5b03")
+
+[node name="CSGBox3D" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.20446, 2.96139)
+material_override = SubResource("ShaderMaterial_i1myj")
+use_collision = true
+size = Vector3(5.53, 4.245, 0.87)

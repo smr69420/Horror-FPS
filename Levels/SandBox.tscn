@@ -1,12 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5ialeglb8xea"]
+[gd_scene load_steps=12 format=3 uid="uid://b5ialeglb8xea"]
 
 [ext_resource type="Material" uid="uid://crnjq6y0ewktc" path="res://Levels/Materials/GrayMaterial.tres" id="1_bsio1"]
 [ext_resource type="PackedScene" uid="uid://cksbitwe7x8h3" path="res://Player/player.tscn" id="1_yjku4"]
 [ext_resource type="Material" uid="uid://cu3tmrykbqdo0" path="res://Levels/Materials/OrangeMaterial.tres" id="3_djv3r"]
 [ext_resource type="PackedScene" uid="uid://dt57jsnmprqxm" path="res://Enemy/enemy.tscn" id="4_u4gaq"]
-[ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="5_s5h1x"]
-[ext_resource type="Texture2D" uid="uid://wel6txxdle2w" path="res://Assets/Textures/Horror_Wall_14-128x128.png" id="6_t42vs"]
-[ext_resource type="Texture2D" uid="uid://d2eg4fbxh7qeh" path="res://Assets/Textures/Horror_Metal_01-128x128.png" id="7_33td7"]
+[ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="5_q03t7"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k7jd5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -37,26 +35,6 @@ graph_offset = Vector2(-98.064, 137.42)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6sj58"]
 render_priority = 0
 shader = SubResource("VisualShader_lodwd")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i1myj"]
-render_priority = 0
-shader = ExtResource("5_s5h1x")
-shader_parameter/normal_scale = 1.0
-shader_parameter/specular = null
-shader_parameter/metallic = null
-shader_parameter/roughness = null
-shader_parameter/main_texture_color = Color(1, 1, 1, 1)
-shader_parameter/main_uv_scale = 1.0
-shader_parameter/main_uv_offset = null
-shader_parameter/main_uv_triplanar = false
-shader_parameter/main_uv_blend_sharpness = 1.0
-shader_parameter/main_texture = ExtResource("6_t42vs")
-shader_parameter/secondary_texture_color = Color(1, 1, 1, 1)
-shader_parameter/secondary_uv_scale = 1.0
-shader_parameter/secondary_uv_offset = null
-shader_parameter/secondary_uv_triplanar = false
-shader_parameter/secondary_uv_blend_sharpness = 1.0
-shader_parameter/secondary_texture = ExtResource("7_33td7")
 
 [node name="SandBox" type="Node3D"]
 
@@ -350,8 +328,4 @@ material = ExtResource("1_bsio1")
 [node name="Enemy" parent="." groups=["enemy"] instance=ExtResource("4_u4gaq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -17)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2877, 2.96139)
-material_override = SubResource("ShaderMaterial_i1myj")
-use_collision = true
-size = Vector3(2, 2, 2)
+[node name="CSGBox3D" parent="." instance=ExtResource("5_q03t7")]

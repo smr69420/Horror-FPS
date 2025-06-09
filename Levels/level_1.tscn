@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://5s4lirks588f"]
+
+[ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
+[ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_omp57"]
+[ext_resource type="Texture2D" uid="uid://wel6txxdle2w" path="res://Assets/Textures/Horror_Wall_14-128x128.png" id="3_3f3yw"]
+[ext_resource type="Texture2D" uid="uid://d2eg4fbxh7qeh" path="res://Assets/Textures/Horror_Metal_01-128x128.png" id="4_1x43e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fldaq"]
+render_priority = 0
+shader = ExtResource("2_omp57")
+shader_parameter/normal_scale = 1.0
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/main_texture_color = Color(1, 1, 1, 1)
+shader_parameter/main_uv_scale = 1.0
+shader_parameter/main_uv_offset = null
+shader_parameter/main_uv_triplanar = false
+shader_parameter/main_uv_blend_sharpness = 1.0
+shader_parameter/main_texture = ExtResource("3_3f3yw")
+shader_parameter/secondary_texture_color = Color(1, 1, 1, 1)
+shader_parameter/secondary_uv_scale = 1.0
+shader_parameter/secondary_uv_offset = null
+shader_parameter/secondary_uv_triplanar = false
+shader_parameter/secondary_uv_blend_sharpness = 1.0
+shader_parameter/secondary_texture = ExtResource("4_1x43e")
+
+[node name="Level1" type="Node3D"]
+
+[node name="Classroom" parent="." instance=ExtResource("1_tbjnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2.961)
+flip_faces = true
+size = Vector3(8, 4, 8)
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Classroom"]
+
+[node name="Door" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 4.03384)
+flip_faces = true
+size = Vector3(1.49, 2, 0.215)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 9.53554)
+top_level = true
+material_override = SubResource("ShaderMaterial_fldaq")
+flip_faces = true
+size = Vector3(30, 4, 5)
