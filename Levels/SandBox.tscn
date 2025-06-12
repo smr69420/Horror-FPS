@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b5ialeglb8xea"]
+[gd_scene load_steps=14 format=3 uid="uid://b5ialeglb8xea"]
 
 [ext_resource type="Material" uid="uid://crnjq6y0ewktc" path="res://Levels/Materials/GrayMaterial.tres" id="1_bsio1"]
 [ext_resource type="PackedScene" uid="uid://cksbitwe7x8h3" path="res://Player/player.tscn" id="1_yjku4"]
 [ext_resource type="Material" uid="uid://cu3tmrykbqdo0" path="res://Levels/Materials/OrangeMaterial.tres" id="3_djv3r"]
 [ext_resource type="PackedScene" uid="uid://dt57jsnmprqxm" path="res://Enemy/enemy.tscn" id="4_u4gaq"]
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="5_q03t7"]
+[ext_resource type="Texture2D" uid="uid://bt1psrmbc0k60" path="res://Assets/Bathroom assets/broken_tiles_material_0.png" id="6_6kel8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_k7jd5"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -35,6 +36,9 @@ graph_offset = Vector2(-98.064, 137.42)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6sj58"]
 render_priority = 0
 shader = SubResource("VisualShader_lodwd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcgq6"]
+albedo_texture = ExtResource("6_6kel8")
 
 [node name="SandBox" type="Node3D"]
 
@@ -329,3 +333,9 @@ material = ExtResource("1_bsio1")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -17)
 
 [node name="CSGBox3D" parent="." instance=ExtResource("5_q03t7")]
+
+[node name="Tilescheck" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -8.17811, 0.0853586, -4.32467)
+use_collision = true
+size = Vector3(5, 5, 0.1)
+material = SubResource("StandardMaterial3D_bcgq6")

@@ -1,4 +1,7 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://crnjq6y0ewktc"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://crnjq6y0ewktc"]
+
+[ext_resource type="Texture2D" uid="uid://wel6txxdle2w" path="res://Assets/Textures/Horror_Wall_14-128x128.png" id="1_bglfe"]
 
 [resource]
-uv1_scale = Vector3(30, 30, 30)
+albedo_texture = ExtResource("1_bglfe")
+uv1_scale = Vector3(2.005, 2.005, 2.005)
