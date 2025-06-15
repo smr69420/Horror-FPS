@@ -10,3 +10,5 @@ fire_rate = 2.0
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, -50)
+
+[connection signal="call_destructible_glass" from="." to="." method="_on_call_destructible_glass"]

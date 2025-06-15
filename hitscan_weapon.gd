@@ -12,10 +12,14 @@ extends Node3D
 @export var weapon_mesh:Node3D
 
 var stop_shooting:=false
+var glass
+
+signal call_destructible_glass
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	timer.start(1.0/fire_rate) # Replace with function body.
+	timer.start(1.0/fire_rate)
+	glass=get_tree().get_first_node_in_group("Glass")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -38,8 +42,15 @@ func shoot() -> void:
 	if collider is CSGBox3D:
 		sparks.global_position=raycast.get_collision_point()
 		sparks.emitting=true
+	if collider is RigidBody3D:
+		emit_signal("call_destructible_glass")
 		
 
 
 func _on_player_stop_shooting() -> void:
 	stop_shooting=true 
+
+
+func _on_call_destructible_glass() -> void:
+	print("glass hit")
+	glass.enable_gravity()

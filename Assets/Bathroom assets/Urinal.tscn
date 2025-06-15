@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkgfm7cv65qll"]
+
+[ext_resource type="PackedScene" uid="uid://w2061a383el0" path="res://Assets/Bathroom assets/silent_hill_2_urinal_toilet_dirty.glb" id="1_f7d7k"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3bdxs"]
+size = Vector3(0.4, 1.01, 1)
+
+[node name="Urinal" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_f7d7k")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_Scene"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_Scene/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0363085, 0.787574, 0)
+shape = SubResource("BoxShape3D_3bdxs")
