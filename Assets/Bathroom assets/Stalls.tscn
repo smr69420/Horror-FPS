@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ehpcctghu78g"]
+
+[ext_resource type="PackedScene" uid="uid://bbhy0shp4djjw" path="res://Assets/Bathroom assets/toilet_partition.glb" id="1_15tpg"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_15tpg")]

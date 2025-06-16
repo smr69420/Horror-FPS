@@ -1,13 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtpw8d1l7p7ij"]
+[gd_scene load_steps=3 format=3 uid="uid://dtpw8d1l7p7ij"]
 
 [ext_resource type="PackedScene" uid="uid://frjmn2s7p4jo" path="res://Assets/Bathroom assets/silent_hill_sink.glb" id="1_11cwv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oyv06"]
+size = Vector3(0.46, 0.225, 0.445)
 
 [node name="Sink" type="Node3D"]
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_11cwv")]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0169012, 0.783525, -0.147952)
-visible = false
-use_collision = true
-size = Vector3(0.453605, 0.169766, 0.384417)
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00559197, 0.807073, -0.143922)
+shape = SubResource("BoxShape3D_oyv06")
