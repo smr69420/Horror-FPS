@@ -1,5 +1,70 @@
-[gd_scene load_steps=2 format=3 uid="uid://ehpcctghu78g"]
+[gd_scene load_steps=6 format=3 uid="uid://ehpcctghu78g"]
 
 [ext_resource type="PackedScene" uid="uid://bbhy0shp4djjw" path="res://Assets/Bathroom assets/toilet_partition.glb" id="1_15tpg"]
+[ext_resource type="PackedScene" uid="uid://cxp4h6k7kotwb" path="res://Assets/Bathroom assets/toilet_with_seat_and_lid_dirty.glb" id="2_lq7qr"]
+[ext_resource type="PackedScene" uid="uid://bd1ty5xq8xnsc" path="res://Assets/Bathroom assets/toilet_with_no_seat_dirty.glb" id="3_0xa1j"]
 
-[node name="Sketchfab_Scene" instance=ExtResource("1_15tpg")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_n8umd"]
+size = Vector3(0.027276, 1.934, 0.770897)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vm6uo"]
+size = Vector3(0.282715, 1, 0.522583)
+
+[node name="Stall" instance=ExtResource("1_15tpg")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="Door" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0200513, 1.21091, 5.21209)
+shape = SubResource("BoxShape3D_n8umd")
+
+[node name="Door2" type="CollisionShape3D" parent="StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0200513, 1.21091, 2.43551)
+shape = SubResource("BoxShape3D_n8umd")
+
+[node name="Door3" type="CollisionShape3D" parent="StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0200513, 1.21091, -0.249912)
+shape = SubResource("BoxShape3D_n8umd")
+
+[node name="HangingDoor" type="CollisionShape3D" parent="StaticBody3D" index="3"]
+transform = Transform3D(0.327993, 0, -0.94468, 0, 1, 0, 0.94468, 0, 0.327993, 0.367859, 1.1823, 1.25613)
+shape = SubResource("BoxShape3D_n8umd")
+
+[node name="Stall" type="CollisionShape3D" parent="StaticBody3D" index="4"]
+transform = Transform3D(-0.1009, 0, -0.994897, 0, 1, 0, 0.994897, 0, -0.1009, -0.745567, 1.21091, 4.57934)
+shape = SubResource("BoxShape3D_n8umd")
+
+[node name="Stall2" type="CollisionShape3D" parent="StaticBody3D" index="5"]
+transform = Transform3D(-0.1009, 0, -0.994897, 0, 1, 0, 0.994897, 0, -0.1009, -0.745567, 1.21091, 3.16905)
+shape = SubResource("BoxShape3D_n8umd")
+
+[node name="Stall3" type="CollisionShape3D" parent="StaticBody3D" index="6"]
+transform = Transform3D(-0.1009, 0, -0.994897, 0, 1, 0, 0.994897, 0, -0.1009, -0.745567, 1.21091, 1.75928)
+shape = SubResource("BoxShape3D_n8umd")
+
+[node name="Stall4" type="CollisionShape3D" parent="StaticBody3D" index="7"]
+transform = Transform3D(-0.1009, 0, -0.994897, 0, 1, 0, 0.994897, 0, -0.1009, -0.745567, 1.21091, 0.373321)
+shape = SubResource("BoxShape3D_n8umd")
+
+[node name="Stall5" type="CollisionShape3D" parent="StaticBody3D" index="8"]
+transform = Transform3D(-0.1009, 0, -0.994897, 0, 1, 0, 0.994897, 0, -0.1009, -0.745567, 1.21091, -1.03191)
+shape = SubResource("BoxShape3D_n8umd")
+
+[node name="Toilet_very" parent="." index="2" instance=ExtResource("2_lq7qr")]
+transform = Transform3D(0.000812502, 0, 1.33, 0, 1.33, 0, -1.33, 0, 0.000812502, -1.08228, 0, 0.92223)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Toilet_very" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Toilet_very/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0368652, 0.440104, 0.00604224)
+shape = SubResource("BoxShape3D_vm6uo")
+
+[node name="Toilet_without_lid" parent="." index="3" instance=ExtResource("3_0xa1j")]
+transform = Transform3D(0.127082, 0, 1.32391, 0, 1.33, 0, -1.32391, 0, 0.127082, -0.975776, 0.073318, 3.73857)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Toilet_without_lid" index="1"]
+transform = Transform3D(0.98409, 0, 0.177669, 0, 1, 0, -0.177669, 0, 0.98409, -0.0230963, -0.0551263, -0.0771974)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Toilet_without_lid/StaticBody3D2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0368652, 0.440104, 0.00604224)
+shape = SubResource("BoxShape3D_vm6uo")

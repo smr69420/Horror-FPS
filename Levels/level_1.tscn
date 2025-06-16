@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://5s4lirks588f"]
+[gd_scene load_steps=15 format=3 uid="uid://5s4lirks588f"]
 
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
 [ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_aiqgl"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dkgfm7cv65qll" path="res://Assets/Bathroom assets/Urinal.tscn" id="5_40bxt"]
 [ext_resource type="PackedScene" uid="uid://dtpw8d1l7p7ij" path="res://Assets/Bathroom assets/sink.tscn" id="6_22dg5"]
 [ext_resource type="PackedScene" uid="uid://civ68jltbumc6" path="res://Assets/Bathroom assets/glass.tscn" id="7_gpmwx"]
+[ext_resource type="PackedScene" uid="uid://ehpcctghu78g" path="res://Assets/Bathroom assets/Stalls.tscn" id="8_goji4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfuje"]
 render_priority = 0
@@ -183,5 +184,8 @@ transform = Transform3D(1.33, 0, 0, 0, 1.33, 0, 0, 0, 1.33, -4.35264, -2.00324, 
 [node name="Glass" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("7_gpmwx")]
 transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -5.83279, 0.620863, -3.38578)
 
+[node name="Stalls" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("8_goji4")]
+transform = Transform3D(-0.0355448, 0, -0.999368, 0, 1, 0, 0.999368, 0, -0.0355448, 7.25303, -2, -1.4843)
+
 [node name="Player" parent="." instance=ExtResource("5_6w0x4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.7095, 0.968681, -14.4669)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8046, 0.968681, -14.4669)
