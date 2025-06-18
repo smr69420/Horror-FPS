@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqyuykehqs2ac"
-path.s3tc="res://.godot/imported/Horror_Wall_14-128x128.png-69fb607714de9801d9d7df31774dd2a7.s3tc.ctex"
+uid="uid://1majn5kkoee4"
+path.s3tc="res://.godot/imported/wall_for_bathroom.png-0ef945ca6e3a89b6220aa158e329a0f2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/Textures/Horror_Wall_14-128x128.png"
-dest_files=["res://.godot/imported/Horror_Wall_14-128x128.png-69fb607714de9801d9d7df31774dd2a7.s3tc.ctex"]
+source_file="res://Assets/Bathroom assets/wall_for_bathroom.png"
+dest_files=["res://.godot/imported/wall_for_bathroom.png-0ef945ca6e3a89b6220aa158e329a0f2.s3tc.ctex"]
 
 [params]
 

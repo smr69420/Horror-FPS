@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=16 format=3 uid="uid://b048fla51bjla"]
 
-[ext_resource type="Texture2D" uid="uid://wel6txxdle2w" path="res://Assets/Textures/Horror_Wall_14-128x128.png" id="1_8im2n"]
+[ext_resource type="Texture2D" uid="uid://bqyuykehqs2ac" path="res://Assets/Textures/Horror_Wall_14-128x128.png" id="1_8im2n"]
 [ext_resource type="Texture2D" uid="uid://d2eg4fbxh7qeh" path="res://Assets/Textures/Horror_Metal_01-128x128.png" id="2_lhdjx"]
 
 [sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_q7klg"]

@@ -1,14 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://5s4lirks588f"]
+[gd_scene load_steps=19 format=3 uid="uid://5s4lirks588f"]
 
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
 [ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_aiqgl"]
 [ext_resource type="Texture2D" uid="uid://d2eg4fbxh7qeh" path="res://Assets/Textures/Horror_Metal_01-128x128.png" id="3_gciah"]
-[ext_resource type="Texture2D" uid="uid://wel6txxdle2w" path="res://Assets/Textures/Horror_Wall_14-128x128.png" id="4_jdtbu"]
+[ext_resource type="Texture2D" uid="uid://bqyuykehqs2ac" path="res://Assets/Textures/Horror_Wall_14-128x128.png" id="4_jdtbu"]
 [ext_resource type="PackedScene" uid="uid://cksbitwe7x8h3" path="res://Player/player.tscn" id="5_6w0x4"]
 [ext_resource type="PackedScene" uid="uid://dkgfm7cv65qll" path="res://Assets/Bathroom assets/Urinal.tscn" id="5_40bxt"]
+[ext_resource type="Texture2D" uid="uid://1majn5kkoee4" path="res://Assets/Bathroom assets/wall_for_bathroom.png" id="5_if6t3"]
 [ext_resource type="PackedScene" uid="uid://dtpw8d1l7p7ij" path="res://Assets/Bathroom assets/sink.tscn" id="6_22dg5"]
 [ext_resource type="PackedScene" uid="uid://civ68jltbumc6" path="res://Assets/Bathroom assets/glass.tscn" id="7_gpmwx"]
 [ext_resource type="PackedScene" uid="uid://ehpcctghu78g" path="res://Assets/Bathroom assets/Stalls.tscn" id="8_goji4"]
+[ext_resource type="Texture2D" uid="uid://bt1psrmbc0k60" path="res://Assets/Bathroom assets/broken_tiles_material_0.png" id="10_pnpj1"]
+[ext_resource type="PackedScene" uid="uid://c5apvpjsn0b8r" path="res://Assets/Bathroom assets/tiles.tscn" id="10_t8ffv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfuje"]
 render_priority = 0
@@ -70,7 +73,7 @@ shader_parameter/secondary_uv_triplanar = true
 shader_parameter/secondary_uv_blend_sharpness = 0.114
 shader_parameter/secondary_texture = ExtResource("3_gciah")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3apmr"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mfvoi"]
 render_priority = 0
 shader = ExtResource("2_aiqgl")
 shader_parameter/normal_scale = 1.0
@@ -90,8 +93,28 @@ shader_parameter/secondary_uv_triplanar = false
 shader_parameter/secondary_uv_blend_sharpness = 1.0
 shader_parameter/secondary_texture = ExtResource("4_jdtbu")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ff0lw"]
-albedo_color = Color(0.904567, 0.259487, 0, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dae6x"]
+render_priority = 0
+shader = ExtResource("2_aiqgl")
+shader_parameter/normal_scale = 1.0
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/roughness = null
+shader_parameter/main_texture_color = Color(1, 1, 1, 1)
+shader_parameter/main_uv_scale = 1.0
+shader_parameter/main_uv_offset = null
+shader_parameter/main_uv_triplanar = false
+shader_parameter/main_uv_blend_sharpness = 1.0
+shader_parameter/main_texture = ExtResource("5_if6t3")
+shader_parameter/secondary_texture_color = Color(1, 1, 1, 1)
+shader_parameter/secondary_uv_scale = 2.0
+shader_parameter/secondary_uv_offset = null
+shader_parameter/secondary_uv_triplanar = false
+shader_parameter/secondary_uv_blend_sharpness = 1.0
+shader_parameter/secondary_texture = ExtResource("5_if6t3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wlcyf"]
+albedo_texture = ExtResource("10_pnpj1")
 
 [node name="Level1" type="Node3D"]
 
@@ -106,6 +129,12 @@ material = SubResource("ShaderMaterial_gfuje")
 
 [node name="Door" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60979, -0.6, 6.275)
+flip_faces = true
+size = Vector3(1.49, 2.8, 0.875)
+material = SubResource("ShaderMaterial_s0706")
+
+[node name="Bathroomdoor" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
+transform = Transform3D(0.0165101, 0, -0.999864, 0, 1, 0, 0.999864, 0, 0.0165101, -21.5693, -0.6, -15.22)
 flip_faces = true
 size = Vector3(1.49, 2.8, 0.875)
 material = SubResource("ShaderMaterial_s0706")
@@ -148,44 +177,66 @@ material = SubResource("ShaderMaterial_wnuxi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
 flip_faces = true
 size = Vector3(28, 4, 12)
-material = SubResource("ShaderMaterial_3apmr")
+material = SubResource("ShaderMaterial_mfvoi")
 
 [node name="Bathroom" type="CSGBox3D" parent="Classroom/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7813, -0.0313187, -15.2295)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7546, -0.0313187, -15.2295)
 flip_faces = true
-size = Vector3(20.0186, 4, 6.65771)
-material = SubResource("StandardMaterial3D_ff0lw")
+size = Vector3(15.1853, 4, 6.65771)
+material = SubResource("ShaderMaterial_dae6x")
 
 [node name="Urinal" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("5_40bxt")]
-transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -10.6206, 0.0376813, -10.9601)
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -13.038, 0.0376813, -10.9601)
 top_level = true
 
 [node name="Urinal2" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("5_40bxt")]
-transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -8.62, 0.038, -10.96)
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -11.0374, 0.038, -10.96)
 top_level = true
 
 [node name="Urinal3" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("5_40bxt")]
-transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -6.62, 0.038, -10.96)
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -9.03737, 0.038, -10.96)
 top_level = true
 
 [node name="Urinal4" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("5_40bxt")]
-transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -4.62, 0.038, -10.96)
+transform = Transform3D(-1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, -7.03737, 0.038, -10.96)
 top_level = true
 
 [node name="Sink" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("6_22dg5")]
-transform = Transform3D(1.33, 0, 0, 0, 1.33, 0, 0, 0, 1.33, -7.35623, -2.00324, -2.81617)
+transform = Transform3D(1.33, 0, 0, 0, 1.33, 0, 0, 0, 1.33, -19.1375, -0.0345588, -17.0791)
+top_level = true
 
 [node name="Sink2" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("6_22dg5")]
-transform = Transform3D(1.33, 0, 0, 0, 1.33, 0, 0, 0, 1.33, -5.85153, -2.00324, -2.82035)
+transform = Transform3D(1.33, 0, 0, 0, 1.33, 0, 0, 0, 1.33, -17.6328, -0.0345588, -17.0833)
+top_level = true
 
 [node name="Sink3" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("6_22dg5")]
-transform = Transform3D(1.33, 0, 0, 0, 1.33, 0, 0, 0, 1.33, -4.35264, -2.00324, -2.82035)
+transform = Transform3D(1.33, 0, 0, 0, 1.33, 0, 0, 0, 1.33, -16.1339, -0.0345588, -17.0833)
+top_level = true
 
 [node name="Glass" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("7_gpmwx")]
-transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -5.83279, 0.620863, -3.38578)
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -17.6141, 2.58954, -17.6488)
+top_level = true
 
 [node name="Stalls" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("8_goji4")]
-transform = Transform3D(-0.0355448, 0, -0.999368, 0, 1, 0, 0.999368, 0, -0.0355448, 7.25303, -2, -1.4843)
+transform = Transform3D(-0.0355448, 0, -0.999368, 0, 1, 0, 0.999368, 0, -0.0355448, -8.60735, -0.0313187, -15.7473)
+top_level = true
 
 [node name="Player" parent="." instance=ExtResource("5_6w0x4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8046, 0.968681, -14.4669)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8508, 0.968681, -14.4669)
+
+[node name="Tiles" parent="." instance=ExtResource("10_t8ffv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -18.9258, -0.0739635, -14.3553)
+size = Vector3(6.907, 6.907, 0.1)
+
+[node name="Tiles2" parent="." instance=ExtResource("10_t8ffv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -12.013, -0.0739635, -14.3553)
+size = Vector3(6.907, 6.907, 0.1)
+
+[node name="Tiles3" parent="." instance=ExtResource("10_t8ffv")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.18628, -0.0739635, -14.3553)
+size = Vector3(6.907, 6.907, 0.1)
+
+[node name="Tiles4" parent="." instance=ExtResource("10_t8ffv")]
+transform = Transform3D(0.0615712, -4.36285e-08, 0.998103, -0.998103, -2.69136e-09, 0.0615712, 0, -1, -4.37114e-08, -14.9716, 1.23839, -15.7814)
+size = Vector3(2.33447, 3.44775, 0.1)
+material = SubResource("StandardMaterial3D_wlcyf")
