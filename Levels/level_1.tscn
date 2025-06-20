@@ -166,6 +166,20 @@ flip_faces = true
 size = Vector3(20, 4, 4.5)
 material = SubResource("ShaderMaterial_wnuxi")
 
+[node name="Corridor5" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28.8716, 0, 20.7309)
+material_override = null
+flip_faces = true
+size = Vector3(20, 4, 4.5)
+material = SubResource("ShaderMaterial_wnuxi")
+
+[node name="Corridor6" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28.8716, 0, 40.2307)
+material_override = null
+flip_faces = true
+size = Vector3(20, 4, 4.5)
+material = SubResource("ShaderMaterial_wnuxi")
+
 [node name="Corridor2" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2834, 0, 8.84782)
 material_override = null
@@ -233,7 +247,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -12.01
 size = Vector3(6.907, 6.907, 0.1)
 
 [node name="Tiles3" parent="." instance=ExtResource("10_t8ffv")]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.18628, -0.0739635, -14.3553)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.10789, -0.0739635, -14.3553)
 size = Vector3(6.907, 6.907, 0.1)
 
 [node name="Tiles4" parent="." instance=ExtResource("10_t8ffv")]
