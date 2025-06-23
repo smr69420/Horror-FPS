@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://6bbphrq8c8y0"]
+
+[ext_resource type="Shader" path="res://Assets/Bathroom assets/ps1_shader.gdshader" id="1_5ug56"]
+
+[sub_resource type="Gradient" id="Gradient_023on"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8hqfv"]
+gradient = SubResource("Gradient_023on")
+fill_from = Vector2(0.432584, 0.410112)
+fill_to = Vector2(0.97191, 0.0786517)
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_5ug56")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.25
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/albedo = SubResource("GradientTexture2D_8hqfv")
