@@ -12,7 +12,7 @@ render_priority = 0
 shader = ExtResource("2_huddb")
 shader_parameter/affine_mapping = false
 shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.25
+shader_parameter/jitter = 0.5
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = ExtResource("3_t4dhq")
 
@@ -55,7 +55,7 @@ render_priority = 0
 shader = ExtResource("2_huddb")
 shader_parameter/affine_mapping = false
 shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.25
+shader_parameter/jitter = 0.5
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = ExtResource("3_t4dhq")
 
@@ -98,7 +98,7 @@ render_priority = 0
 shader = ExtResource("2_huddb")
 shader_parameter/affine_mapping = false
 shader_parameter/alpha_scissor = 0.5
-shader_parameter/jitter = 0.25
+shader_parameter/jitter = 0.5
 shader_parameter/resolution = Vector2i(320, 240)
 shader_parameter/albedo = ExtResource("3_t4dhq")
 

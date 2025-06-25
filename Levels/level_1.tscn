@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://5s4lirks588f"]
+[gd_scene load_steps=20 format=3 uid="uid://5s4lirks588f"]
 
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
 [ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_aiqgl"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://civ68jltbumc6" path="res://Assets/Bathroom assets/glass.tscn" id="7_gpmwx"]
 [ext_resource type="PackedScene" uid="uid://ehpcctghu78g" path="res://Assets/Bathroom assets/Stalls.tscn" id="8_goji4"]
 [ext_resource type="PackedScene" uid="uid://c5apvpjsn0b8r" path="res://Assets/Bathroom assets/tiles.tscn" id="10_t8ffv"]
+[ext_resource type="PackedScene" uid="uid://dnnq8442ut5he" path="res://Assets/Eye asset/final_eye.tscn" id="13_ddsvr"]
 [ext_resource type="Texture2D" uid="uid://b7bfup4t67w2i" path="res://Assets/Bathroom assets/Tiles128.png" id="13_slhq4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfuje"]
@@ -238,3 +239,6 @@ size = Vector3(6.907, 6.907, 0.1)
 transform = Transform3D(0.0615712, -4.36285e-08, 0.998103, -0.998103, -2.69136e-09, 0.0615712, 0, -1, -4.37114e-08, -14.9716, 1.23839, -15.7814)
 size = Vector3(2.33447, 3.44775, 0.1)
 material = SubResource("StandardMaterial3D_qcv56")
+
+[node name="Eye" parent="." instance=ExtResource("13_ddsvr")]
+transform = Transform3D(-0.977023, 0, -0.213133, 0, 1, 0, 0.213133, 0, -0.977023, -16.9863, 1.52981, -16.0465)
