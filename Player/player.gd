@@ -60,7 +60,7 @@ func _input(event: InputEvent) -> void:
 	if stop_taking_input==false:
 		if event is InputEventMouseMotion:
 			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-				mouse_motion = -event.relative * 0.001
+				mouse_motion = -event.relative * 0.002
 		if event.is_action_pressed("ui_cancel"):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		

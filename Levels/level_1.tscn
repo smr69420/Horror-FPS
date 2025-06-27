@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://5s4lirks588f"]
+[gd_scene load_steps=22 format=3 uid="uid://5s4lirks588f"]
 
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
 [ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_aiqgl"]
@@ -11,8 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://civ68jltbumc6" path="res://Assets/Bathroom assets/glass.tscn" id="7_gpmwx"]
 [ext_resource type="PackedScene" uid="uid://ehpcctghu78g" path="res://Assets/Bathroom assets/Stalls.tscn" id="8_goji4"]
 [ext_resource type="PackedScene" uid="uid://c5apvpjsn0b8r" path="res://Assets/Bathroom assets/tiles.tscn" id="10_t8ffv"]
+[ext_resource type="PackedScene" uid="uid://cniq0ykrdx4m1" path="res://Assets/School assets/Chair/Chair.glb" id="12_5ppmg"]
 [ext_resource type="PackedScene" uid="uid://dnnq8442ut5he" path="res://Assets/Eye asset/final_eye.tscn" id="13_ddsvr"]
 [ext_resource type="Texture2D" uid="uid://b7bfup4t67w2i" path="res://Assets/Bathroom assets/Tiles128.png" id="13_slhq4"]
+[ext_resource type="PackedScene" uid="uid://dtltiuy6jibk5" path="res://Assets/School assets/Desk/source/PSX_TVStand.glb" id="14_reeqf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfuje"]
 render_priority = 0
@@ -74,25 +76,10 @@ shader_parameter/secondary_uv_triplanar = true
 shader_parameter/secondary_uv_blend_sharpness = 0.114
 shader_parameter/secondary_texture = ExtResource("3_gciah")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mfvoi"]
-render_priority = 0
-shader = ExtResource("2_aiqgl")
-shader_parameter/normal_scale = 1.0
-shader_parameter/specular = null
-shader_parameter/metallic = null
-shader_parameter/roughness = null
-shader_parameter/main_texture_color = Color(1, 1, 1, 1)
-shader_parameter/main_uv_scale = 1.0
-shader_parameter/main_uv_offset = null
-shader_parameter/main_uv_triplanar = false
-shader_parameter/main_uv_blend_sharpness = 1.0
-shader_parameter/main_texture = ExtResource("3_gciah")
-shader_parameter/secondary_texture_color = Color(1, 1, 1, 1)
-shader_parameter/secondary_uv_scale = 1.0
-shader_parameter/secondary_uv_offset = null
-shader_parameter/secondary_uv_triplanar = false
-shader_parameter/secondary_uv_blend_sharpness = 1.0
-shader_parameter/secondary_texture = ExtResource("4_jdtbu")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4m0fk"]
+albedo_texture = ExtResource("4_jdtbu")
+uv1_scale = Vector3(1.55, 1.55, 1.55)
+texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dabom"]
 albedo_texture = ExtResource("5_if6t3")
@@ -176,7 +163,7 @@ material = SubResource("ShaderMaterial_wnuxi")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
 flip_faces = true
 size = Vector3(28, 4, 12)
-material = SubResource("ShaderMaterial_mfvoi")
+material = SubResource("StandardMaterial3D_4m0fk")
 
 [node name="Bathroom" type="CSGBox3D" parent="Classroom/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.7546, -0.0313187, -15.2295)
@@ -221,24 +208,72 @@ transform = Transform3D(-0.0355448, 0, -0.999368, 0, 1, 0, 0.999368, 0, -0.03554
 top_level = true
 
 [node name="Player" parent="." instance=ExtResource("5_6w0x4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.4027, 0.968681, -16.0504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.9703, 0.968681, -1.60242)
 
-[node name="Tiles" parent="." instance=ExtResource("10_t8ffv")]
+[node name="Classroom2" type="Node3D" parent="."]
+
+[node name="Desk" parent="Classroom2" instance=ExtResource("14_reeqf")]
+transform = Transform3D(-0.00934091, 0, 1.19996, 0, 1.2, 0, -1.19996, 0, -0.00934091, 36.3435, 0, 4.80721)
+
+[node name="Desk2" parent="Classroom2" instance=ExtResource("14_reeqf")]
+transform = Transform3D(-0.00934091, 0, 1.19996, 0, 1.2, 0, -1.19996, 0, -0.00934091, 36.3435, 0, 1.80721)
+
+[node name="Desk3" parent="Classroom2" instance=ExtResource("14_reeqf")]
+transform = Transform3D(-0.00934091, 0, 1.19996, 0, 1.2, 0, -1.19996, 0, -0.00934091, 36.3435, 0, -1.19279)
+
+[node name="Desk4" parent="Classroom2" instance=ExtResource("14_reeqf")]
+transform = Transform3D(-0.00934091, 0, 1.19996, 0, 1.2, 0, -1.19996, 0, -0.00934091, 36.3435, 0, -4.19279)
+
+[node name="Chair" parent="Classroom2" instance=ExtResource("12_5ppmg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.8136, 0, 1.64705)
+
+[node name="Chair3" parent="Classroom2" instance=ExtResource("12_5ppmg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.8136, 0, -1.03636)
+
+[node name="Chair4" parent="Classroom2" instance=ExtResource("12_5ppmg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.8136, 0, -4.33741)
+
+[node name="Chair2" parent="Classroom2" instance=ExtResource("12_5ppmg")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 37.8136, 0, 4.82355)
+
+[node name="Tiles" type="Node3D" parent="."]
+
+[node name="Tiles" parent="Tiles" instance=ExtResource("10_t8ffv")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -18.9258, -0.0739635, -14.3553)
 size = Vector3(6.907, 6.907, 0.1)
 
-[node name="Tiles2" parent="." instance=ExtResource("10_t8ffv")]
+[node name="Tiles2" parent="Tiles" instance=ExtResource("10_t8ffv")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -12.013, -0.0739635, -14.3553)
 size = Vector3(6.907, 6.907, 0.1)
 
-[node name="Tiles3" parent="." instance=ExtResource("10_t8ffv")]
+[node name="Tiles3" parent="Tiles" instance=ExtResource("10_t8ffv")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.10789, -0.0739635, -14.3553)
 size = Vector3(6.907, 6.907, 0.1)
 
-[node name="Tiles4" parent="." instance=ExtResource("10_t8ffv")]
+[node name="Tiles4" parent="Tiles" instance=ExtResource("10_t8ffv")]
 transform = Transform3D(0.0615712, -4.36285e-08, 0.998103, -0.998103, -2.69136e-09, 0.0615712, 0, -1, -4.37114e-08, -14.9716, 1.23839, -15.7814)
 size = Vector3(2.33447, 3.44775, 0.1)
 material = SubResource("StandardMaterial3D_qcv56")
 
-[node name="Eye" parent="." instance=ExtResource("13_ddsvr")]
-transform = Transform3D(-0.977023, 0, -0.213133, 0, 1, 0, 0.213133, 0, -0.977023, -16.9863, 1.52981, -16.0465)
+[node name="Eyes" type="Node3D" parent="."]
+
+[node name="Eye2" parent="Eyes" instance=ExtResource("13_ddsvr")]
+transform = Transform3D(0.999489, 0, -0.0319512, 0, 1, 0, 0.0319512, 0, 0.999489, -30.7638, 1.59319, 25.4282)
+
+[node name="Eye3" parent="Eyes" instance=ExtResource("13_ddsvr")]
+transform = Transform3D(0.999489, 0, -0.0319512, 0, 1, 0, 0.0319512, 0, 0.999489, -30.7638, 3.02415, 33.2098)
+
+[node name="Eye4" parent="Eyes" instance=ExtResource("13_ddsvr")]
+transform = Transform3D(-0.996379, 0, 0.0850165, 0, 1, 0, -0.0850165, 0, -0.996379, -27.0381, 1.17499, 40.0257)
+
+[node name="Eye6" parent="Eyes" instance=ExtResource("13_ddsvr")]
+transform = Transform3D(-0.996379, 0, 0.0850165, 0, 1, 0, -0.0850165, 0, -0.996379, -27.0381, 2.03189, 30.3726)
+
+[node name="Eye7" parent="Eyes" instance=ExtResource("13_ddsvr")]
+transform = Transform3D(-0.996379, 0, 0.0850165, 0, 1, 0, -0.0850165, 0, -0.996379, -27.0381, 1.32073, 23.4306)
+
+[node name="Eye8" parent="Eyes" instance=ExtResource("13_ddsvr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.6651, 1.99649, 18.9562)
+
+[node name="Eye5" parent="Eyes" instance=ExtResource("13_ddsvr")]
+transform = Transform3D(0.999351, 0, -0.0360155, 0, 1, 0, 0.0360155, 0, 0.999351, -30.9169, 1.92454, 39.1308)
