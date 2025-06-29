@@ -61,8 +61,8 @@ func _input(event: InputEvent) -> void:
 		if event is InputEventMouseMotion:
 			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 				mouse_motion = -event.relative * 0.002
-		if event.is_action_pressed("ui_cancel"):
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		#if event.is_action_pressed("ui_cancel"):
+			#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		
 func handle_camera_rotation() -> void:
 	rotate_y(mouse_motion.x)
@@ -71,4 +71,7 @@ func handle_camera_rotation() -> void:
 		camera_pivot.rotation_degrees.x, -90.0, 90.0
 	)
 	mouse_motion = Vector2.ZERO
+	
+func _process(delta:float) -> void:
+	pass
 	

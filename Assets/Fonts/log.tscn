@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://do4rxjcwc3c2t"]
+
+[ext_resource type="FontFile" uid="uid://cpux6o4dovlpv" path="res://Assets/Fonts/Outfit-Medium.ttf" id="1_m84xd"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ipkec"]
+font = ExtResource("1_m84xd")
+font_size = 32
+
+[node name="Log1" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Random text here for now gabagool muheheehe although it is supposed to be
+cool for now this is all you get"
+label_settings = SubResource("LabelSettings_ipkec")
+horizontal_alignment = 1

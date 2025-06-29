@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://o06oeggx0m4f"]
+
+[ext_resource type="PackedScene" uid="uid://d1l3itjltgveg" path="res://Assets/School assets/Closet/source/PSX_Closet.glb" id="1_h561f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_oteiu"]
+size = Vector3(1.60767, 2.04779, 0.719849)
+
+[node name="Closet" type="Node3D"]
+
+[node name="PSX_Closet" parent="." instance=ExtResource("1_h561f")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000610352, 1.19196, 0.0103149)
+shape = SubResource("BoxShape3D_oteiu")
+
+[editable path="PSX_Closet"]

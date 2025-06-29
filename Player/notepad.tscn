@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://binyw318nkff4"]
+
+[ext_resource type="PackedScene" uid="uid://bpcgbnkhw735x" path="res://Assets/School assets/ps1_style_patient_sheet_with_clipboard.glb" id="1_2bnrw"]
+[ext_resource type="Script" path="res://Assets/School assets/notepad.gd" id="1_t4axk"]
+[ext_resource type="PackedScene" uid="uid://do4rxjcwc3c2t" path="res://Player/log.tscn" id="3_tnpyw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxlt2"]
+size = Vector3(0.20752, 0.343811, 0.0141602)
+
+[node name="Notepad1" type="Node3D"]
+script = ExtResource("1_t4axk")
+textrange = 4
+
+[node name="Notepad" parent="." instance=ExtResource("1_2bnrw")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, -0.00576782, -0.00583684)
+shape = SubResource("BoxShape3D_kxlt2")
+
+[node name="Log1" parent="." instance=ExtResource("3_tnpyw")]
+visible = false
+
+[editable path="Notepad"]
