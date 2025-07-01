@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://5s4lirks588f"]
+[gd_scene load_steps=33 format=3 uid="uid://5s4lirks588f"]
 
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
 [ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_aiqgl"]
@@ -22,6 +22,20 @@
 [ext_resource type="PackedScene" uid="uid://binyw318nkff4" path="res://Player/notepad.tscn" id="19_vr6m4"]
 [ext_resource type="Texture2D" uid="uid://c1i1xwm5ojmpt" path="res://Assets/Background Images/dark-forest_pixelated_and_cropped.jpg" id="21_lue2y"]
 [ext_resource type="PackedScene" uid="uid://bqu78mwqsbgry" path="res://Assets/Environment assets/window_with_rain.tscn" id="23_10bmo"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jwx28"]
+sky_top_color = Color(0.0439255, 0.0619628, 0.0870453, 1)
+sky_horizon_color = Color(0.560981, 0.557741, 0.555011, 1)
+ground_horizon_color = Color(0.560981, 0.557741, 0.555011, 1)
+
+[sub_resource type="Sky" id="Sky_vr0h7"]
+sky_material = SubResource("ProceduralSkyMaterial_jwx28")
+
+[sub_resource type="Environment" id="Environment_iagtx"]
+background_mode = 1
+sky = SubResource("Sky_vr0h7")
+ambient_light_color = Color(0.838439, 0.133658, 0.0642644, 1)
+tonemap_mode = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwd63"]
 albedo_texture = ExtResource("4_jdtbu")
@@ -69,6 +83,9 @@ material = SubResource("StandardMaterial3D_8wck7")
 size = Vector2(2.255, 6.03)
 
 [node name="Level1" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_iagtx")
 
 [node name="Classroom" parent="." instance=ExtResource("1_tbjnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.966523)
