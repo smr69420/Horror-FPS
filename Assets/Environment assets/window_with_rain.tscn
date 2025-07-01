@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqu78mwqsbgry"]
+
+[ext_resource type="Shader" path="res://rain_effects_but_3d.gdshader" id="1_wpu0s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4lsde"]
+render_priority = 0
+shader = ExtResource("1_wpu0s")
+shader_parameter/rain_amount = 120.0
+shader_parameter/near_rain_length = 0.2
+shader_parameter/far_rain_length = 0.1
+shader_parameter/near_rain_width = 1.0
+shader_parameter/far_rain_width = 0.5
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/base_rain_speed = 0.7
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 0.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_f0e2b"]
+material = SubResource("ShaderMaterial_4lsde")
+size = Vector2(1.75, 1.75)
+
+[node name="window with rain" type="MeshInstance3D"]
+mesh = SubResource("PlaneMesh_f0e2b")

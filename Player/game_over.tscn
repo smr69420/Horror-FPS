@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctnbf8u6cydkn"]
+[gd_scene load_steps=6 format=3 uid="uid://ctnbf8u6cydkn"]
 
 [ext_resource type="FontFile" uid="uid://cpux6o4dovlpv" path="res://Assets/Fonts/Outfit-Medium.ttf" id="1_rs6g7"]
 [ext_resource type="Script" path="res://Player/game_over.gd" id="2_jol5m"]
+[ext_resource type="FontFile" uid="uid://bj3eiqyuffh8i" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="3_y6dlh"]
 
 [sub_resource type="Theme" id="Theme_0k5t2"]
 default_font = ExtResource("1_rs6g7")
 default_font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_xsx7h"]
+font = ExtResource("3_y6dlh")
 font_size = 64
 
 [node name="GameOver" type="Control"]

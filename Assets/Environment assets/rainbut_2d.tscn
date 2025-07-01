@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://yf28cs42bl7i"]
+
+[sub_resource type="Gradient" id="Gradient_yevdg"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h8w6p"]
+gradient = SubResource("Gradient_yevdg")
+
+[sub_resource type="Curve" id="Curve_6e5xy"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_o7sug"]
+max_value = 30.0
+_data = [Vector2(0, 14.5055), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_kvfuj"]
+max_value = 3.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_h8iie"]
+curve_x = SubResource("Curve_6e5xy")
+curve_y = SubResource("Curve_o7sug")
+curve_z = SubResource("Curve_kvfuj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_isf6o"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(350, 1, 1)
+gravity = Vector3(0, 3000, 0)
+scale_over_velocity_curve = SubResource("CurveXYZTexture_h8iie")
+color_initial_ramp = SubResource("GradientTexture1D_h8w6p")
+
+[node name="Rainbut2d" type="GPUParticles2D"]
+amount = 1000
+process_material = SubResource("ParticleProcessMaterial_isf6o")
+lifetime = 0.5
+preprocess = 0.5
+visibility_rect = Rect2(-350, -200, 700, 400)

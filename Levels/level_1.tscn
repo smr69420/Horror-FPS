@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://5s4lirks588f"]
+[gd_scene load_steps=30 format=3 uid="uid://5s4lirks588f"]
 
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
 [ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_aiqgl"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cksbitwe7x8h3" path="res://Player/player.tscn" id="5_6w0x4"]
 [ext_resource type="PackedScene" uid="uid://dkgfm7cv65qll" path="res://Assets/Bathroom assets/Urinal.tscn" id="5_40bxt"]
 [ext_resource type="Texture2D" uid="uid://1majn5kkoee4" path="res://Assets/Bathroom assets/wall_for_bathroom.png" id="5_if6t3"]
+[ext_resource type="Material" uid="uid://bfgjh7gyrg0x5" path="res://Levels/Materials/corridor.tres" id="5_r8ww5"]
 [ext_resource type="PackedScene" uid="uid://dtpw8d1l7p7ij" path="res://Assets/Bathroom assets/sink.tscn" id="6_22dg5"]
 [ext_resource type="PackedScene" uid="uid://civ68jltbumc6" path="res://Assets/Bathroom assets/glass.tscn" id="7_gpmwx"]
 [ext_resource type="PackedScene" uid="uid://ehpcctghu78g" path="res://Assets/Bathroom assets/Stalls.tscn" id="8_goji4"]
@@ -19,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://o06oeggx0m4f" path="res://Assets/School assets/Closet/closet.tscn" id="14_hfcsj"]
 [ext_resource type="PackedScene" uid="uid://cne3bayp4yhv4" path="res://Assets/School assets/Drawers/drawer.tscn" id="18_qoh02"]
 [ext_resource type="PackedScene" uid="uid://binyw318nkff4" path="res://Player/notepad.tscn" id="19_vr6m4"]
+[ext_resource type="Texture2D" uid="uid://c1i1xwm5ojmpt" path="res://Assets/Background Images/dark-forest_pixelated_and_cropped.jpg" id="21_lue2y"]
+[ext_resource type="PackedScene" uid="uid://bqu78mwqsbgry" path="res://Assets/Environment assets/window_with_rain.tscn" id="23_10bmo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwd63"]
 albedo_texture = ExtResource("4_jdtbu")
@@ -45,26 +48,6 @@ shader_parameter/secondary_uv_triplanar = false
 shader_parameter/secondary_uv_blend_sharpness = 1.0
 shader_parameter/secondary_texture = ExtResource("3_gciah")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wnuxi"]
-render_priority = 0
-shader = ExtResource("2_aiqgl")
-shader_parameter/normal_scale = -16.0
-shader_parameter/specular = 0.0
-shader_parameter/metallic = 0.0
-shader_parameter/roughness = 0.526
-shader_parameter/main_texture_color = Color(1, 1, 1, 1)
-shader_parameter/main_uv_scale = 1.0
-shader_parameter/main_uv_offset = null
-shader_parameter/main_uv_triplanar = false
-shader_parameter/main_uv_blend_sharpness = 1.0
-shader_parameter/main_texture = ExtResource("4_jdtbu")
-shader_parameter/secondary_texture_color = Color(1, 1, 1, 1)
-shader_parameter/secondary_uv_scale = 0.135
-shader_parameter/secondary_uv_offset = null
-shader_parameter/secondary_uv_triplanar = true
-shader_parameter/secondary_uv_blend_sharpness = 0.114
-shader_parameter/secondary_texture = ExtResource("3_gciah")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4m0fk"]
 albedo_texture = ExtResource("4_jdtbu")
 uv1_scale = Vector3(1.55, 1.55, 1.55)
@@ -77,6 +60,13 @@ texture_filter = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcv56"]
 albedo_texture = ExtResource("13_slhq4")
 uv1_scale = Vector3(1.765, 1.765, 1.765)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wck7"]
+albedo_texture = ExtResource("21_lue2y")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xim5g"]
+material = SubResource("StandardMaterial3D_8wck7")
+size = Vector2(2.255, 6.03)
 
 [node name="Level1" type="Node3D"]
 
@@ -112,41 +102,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.84782)
 material_override = null
 flip_faces = true
 size = Vector3(40, 4, 4.5)
-material = SubResource("ShaderMaterial_wnuxi")
+material = ExtResource("5_r8ww5")
 
 [node name="Corridor4" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -23.9876, 0, -7.91539)
 flip_faces = true
 size = Vector3(30, 4, 4.5)
-material = SubResource("ShaderMaterial_wnuxi")
+material = ExtResource("5_r8ww5")
 
 [node name="Corridor3" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8716, 0, 8.84782)
 material_override = null
 flip_faces = true
 size = Vector3(20, 4, 4.5)
-material = SubResource("ShaderMaterial_wnuxi")
+material = ExtResource("5_r8ww5")
 
 [node name="Corridor5" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28.8716, 0, 20.7309)
 material_override = null
 flip_faces = true
 size = Vector3(20, 4, 4.5)
-material = SubResource("ShaderMaterial_wnuxi")
+material = ExtResource("5_r8ww5")
 
 [node name="Corridor6" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28.8716, 0, 40.2307)
 material_override = null
 flip_faces = true
 size = Vector3(20, 4, 4.5)
-material = SubResource("ShaderMaterial_wnuxi")
+material = ExtResource("5_r8ww5")
 
 [node name="Corridor2" parent="Classroom/CSGCombiner3D" instance=ExtResource("1_tbjnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2834, 0, 8.84782)
 material_override = null
 flip_faces = true
 size = Vector3(40, 4, 4.5)
-material = SubResource("ShaderMaterial_wnuxi")
+material = ExtResource("5_r8ww5")
 
 [node name="Classroom 2" type="CSGBox3D" parent="Classroom/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
@@ -196,8 +186,32 @@ top_level = true
 transform = Transform3D(-0.0355448, 0, -0.999368, 0, 1, 0, 0.999368, 0, -0.0355448, -8.60735, -0.0313187, -15.7473)
 top_level = true
 
+[node name="Window" type="CSGBox3D" parent="Classroom/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, -0.13036, 11)
+size = Vector3(1.5, 1.5, 1)
+
+[node name="Window3" type="CSGBox3D" parent="Classroom/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, -0.13036, 11)
+size = Vector3(1.5, 1.5, 1)
+
+[node name="Window4" type="CSGBox3D" parent="Classroom/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -0.13036, 11)
+size = Vector3(1.5, 1.5, 1)
+
+[node name="Window5" type="CSGBox3D" parent="Classroom/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, -0.13036, 11)
+size = Vector3(1.5, 1.5, 1)
+
+[node name="Window6" type="CSGBox3D" parent="Classroom/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, -0.13036, 11)
+size = Vector3(1.5, 1.5, 1)
+
+[node name="Window2" type="CSGBox3D" parent="Classroom/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, -0.13036, 11)
+size = Vector3(1.5, 1.5, 1)
+
 [node name="Player" parent="." instance=ExtResource("5_6w0x4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5521, 0.968681, 5.72362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2635, 0.968681, 9.49587)
 
 [node name="Classroom2" type="Node3D" parent="."]
 
@@ -447,11 +461,59 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.6651, 1.99649, 18.9562)
 [node name="Eye5" parent="Eyes" instance=ExtResource("13_ddsvr")]
 transform = Transform3D(0.999351, 0, -0.0360155, 0, 1, 0, 0.0360155, 0, 0.999351, -30.9169, 1.92454, 39.1308)
 
-[node name="Node3D" parent="." instance=ExtResource("18_qoh02")]
+[node name="Drawer" parent="." instance=ExtResource("18_qoh02")]
 transform = Transform3D(-1.17225e-07, 0, -1, 0, 1, 0, 1, 0, -1.17225e-07, 29.2517, 0, 5)
 
-[node name="Node3D2" parent="." instance=ExtResource("18_qoh02")]
+[node name="Drawer2" parent="." instance=ExtResource("18_qoh02")]
 transform = Transform3D(-1.17225e-07, 0, -1, 0, 1, 0, 1, 0, -1.17225e-07, -12.4787, 0, 5)
 
 [node name="Notepad" parent="." instance=ExtResource("19_vr6m4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5462, 1.06591, -1.09989)
+
+[node name="Raineffects" type="Node3D" parent="."]
+
+[node name="window with rain" parent="Raineffects" instance=ExtResource("23_10bmo")]
+transform = Transform3D(-1, 3.82137e-15, -8.74228e-08, 8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 39.0772, 1.90139, 12.0742)
+skeleton = NodePath("../..")
+
+[node name="window with rain3" parent="Raineffects" instance=ExtResource("23_10bmo")]
+transform = Transform3D(-1, 3.82137e-15, -8.74228e-08, 8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 27.0772, 1.90139, 12.0742)
+skeleton = NodePath("../..")
+
+[node name="window with rain4" parent="Raineffects" instance=ExtResource("23_10bmo")]
+transform = Transform3D(-1, 3.82137e-15, -8.74228e-08, 8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 15.0772, 1.90139, 12.0742)
+skeleton = NodePath("../..")
+
+[node name="window with rain5" parent="Raineffects" instance=ExtResource("23_10bmo")]
+transform = Transform3D(-1, 3.82137e-15, -8.74228e-08, 8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 3.07721, 1.90139, 12.0742)
+skeleton = NodePath("../..")
+
+[node name="window with rain6" parent="Raineffects" instance=ExtResource("23_10bmo")]
+transform = Transform3D(-1, 3.82137e-15, -8.74228e-08, 8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, -8.92279, 1.90139, 12.0742)
+skeleton = NodePath("../..")
+
+[node name="window with rain2" parent="Raineffects" instance=ExtResource("23_10bmo")]
+transform = Transform3D(-1, 3.82137e-15, -8.74228e-08, 8.74228e-08, 4.37114e-08, -1, 0, -1, -4.37114e-08, 51.0772, 1.90139, 12.0742)
+skeleton = NodePath("../..")
+
+[node name="Images" type="Node3D" parent="."]
+
+[node name="ForestImage" type="MeshInstance3D" parent="Images"]
+transform = Transform3D(-56.25, 2.56987e-14, -6.92825e-07, 4.91753e-06, 2.93959e-07, -7.925, 0, -6.725, -3.46413e-07, 40.6963, 10.3928, 28.2225)
+mesh = SubResource("PlaneMesh_xim5g")
+skeleton = NodePath("../..")
+
+[node name="ForestImage4" type="MeshInstance3D" parent="Images"]
+transform = Transform3D(-56.25, 2.56987e-14, -6.92825e-07, -2.14952e-13, -6.725, -2.84217e-13, -4.91753e-06, 5.68434e-14, 7.925, 30.6963, 39.9228, 31.2225)
+mesh = SubResource("PlaneMesh_xim5g")
+skeleton = NodePath("../..")
+
+[node name="ForestImage3" type="MeshInstance3D" parent="Images"]
+transform = Transform3D(2.45877e-06, 6.725, 3.46413e-07, 4.91753e-06, 2.93959e-07, -7.925, -56.25, 2.93959e-07, -6.92825e-07, -22.3037, 10.3928, 76.5605)
+mesh = SubResource("PlaneMesh_xim5g")
+skeleton = NodePath("../..")
+
+[node name="ForestImage2" type="MeshInstance3D" parent="Images"]
+transform = Transform3D(2.45877e-06, -6.725, -3.46413e-07, 4.91753e-06, 2.93959e-07, -7.925, 56.25, 2.93959e-07, 6.92825e-07, 60.6963, 10.3928, 18.5605)
+mesh = SubResource("PlaneMesh_xim5g")
+skeleton = NodePath("../..")

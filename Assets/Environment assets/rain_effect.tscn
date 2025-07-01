@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://crslrxhbdmx3"]
+
+[ext_resource type="Shader" path="res://rain_effects.gdshader" id="1_rytk5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ws0gk"]
+shader = ExtResource("1_rytk5")
+shader_parameter/rain_amount = 200.0
+shader_parameter/near_rain_length = 0.2
+shader_parameter/far_rain_length = 0.1
+shader_parameter/near_rain_width = 1.0
+shader_parameter/far_rain_width = 0.5
+shader_parameter/near_rain_transparency = 1.0
+shader_parameter/far_rain_transparency = 0.5
+shader_parameter/rain_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/base_rain_speed = 0.5
+shader_parameter/additional_rain_speed = 0.5
+shader_parameter/slant = 0.2
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_ws0gk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)

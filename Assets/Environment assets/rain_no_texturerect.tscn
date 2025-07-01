@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsbd8pgb0gloo"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tgnpn"]
+emission_shape = 3
+emission_box_extents = Vector3(40.075, 0.5, 10)
+direction = Vector3(0, -1, 0)
+spread = 5.0
+initial_velocity_min = 40.0
+initial_velocity_max = 100.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_phibp"]
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.601223, 0.601223, 0.601223, 1)
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_sadic"]
+material = SubResource("StandardMaterial3D_phibp")
+size = 0.16
+section_length = 0.116
+
+[node name="Rain" type="GPUParticles3D"]
+amount = 200
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_tgnpn")
+draw_pass_1 = SubResource("RibbonTrailMesh_sadic")
