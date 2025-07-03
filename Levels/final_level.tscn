@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3 uid="uid://dor5cg6m65fd8"]
+
+[ext_resource type="PackedScene" uid="uid://bkjf62n5dnvy0" path="res://Levels/classroom.tscn" id="1_rsl6y"]
+[ext_resource type="PackedScene" uid="uid://dt57jsnmprqxm" path="res://Enemy/enemy.tscn" id="2_rcmc2"]
+[ext_resource type="PackedScene" uid="uid://cksbitwe7x8h3" path="res://Player/player.tscn" id="3_rf5jh"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fbpj7"]
+sky_top_color = Color(0.0439255, 0.0619628, 0.0870453, 1)
+sky_horizon_color = Color(0.560981, 0.557741, 0.555011, 1)
+ground_horizon_color = Color(0.560981, 0.557741, 0.555011, 1)
+
+[sub_resource type="Sky" id="Sky_p0wqm"]
+sky_material = SubResource("ProceduralSkyMaterial_fbpj7")
+
+[sub_resource type="Environment" id="Environment_mmwaa"]
+background_mode = 1
+sky = SubResource("Sky_p0wqm")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_d2yi4"]
+vertices = PackedVector3Array(41.75, -1.5, 2, 47.75, -1.5, 2, 47.75, -1.5, 0.25, 41.5, -1.5, 0, -13.25, -1.5, -5.25, 41.5, -1.5, -5.25, 41.5, -1.5, 5.25, -13.25, -1.5, 5.25)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 3, 4), PackedInt32Array(0, 6, 3), PackedInt32Array(3, 6, 7), PackedInt32Array(3, 7, 4)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dhh1"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 3.0
+
+[node name="Final_level" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mmwaa")
+
+[node name="Enemy" parent="." instance=ExtResource("2_rcmc2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36, -1, 1.05721)
+
+[node name="Player" parent="." instance=ExtResource("3_rf5jh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -1, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_d2yi4")
+
+[node name="Classroom 2" parent="NavigationRegion3D" instance=ExtResource("1_rsl6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+use_collision = true
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D/Classroom 2"]
+
+[node name="Classroom 3" parent="NavigationRegion3D/Classroom 2/CSGCombiner3D" instance=ExtResource("1_rsl6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
+
+[node name="FinalArea" type="CSGBox3D" parent="NavigationRegion3D/Classroom 2/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0404, 0, 1.0267)
+flip_faces = true
+size = Vector3(6.50879, 4, 3.05231)
+material = SubResource("StandardMaterial3D_3dhh1")

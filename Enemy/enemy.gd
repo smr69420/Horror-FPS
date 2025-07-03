@@ -12,13 +12,13 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var retreat_time:Timer=$RetreatTime
 
 @export var attack_range:float=1.5
-@export var max_health:int=100
+@export var max_health:int=160
 @export var attacking_power:=20
 
 var player
 var provoked:=false
 var stop_attacking_after_player_death:=false
-var aggro_range :=12.0
+var aggro_range :=20.0
 var random=RandomNumberGenerator.new()
 var run_once=false
 var function_number=0
@@ -40,8 +40,8 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	var next_position = navigation_agent_3d.get_next_path_position()
 	# Add the gravity.
-	if not is_on_floor():
-		velocity.y -= gravity * delta
+	#if not is_on_floor():
+		#velocity.y -= gravity * delta
 
 	var direction=global_position.direction_to(next_position)
 	var distance=global_position.distance_to(player.global_position)

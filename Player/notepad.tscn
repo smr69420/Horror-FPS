@@ -1,10 +1,62 @@
-[gd_scene load_steps=5 format=3 uid="uid://binyw318nkff4"]
+[gd_scene load_steps=12 format=4 uid="uid://binyw318nkff4"]
 
 [ext_resource type="PackedScene" uid="uid://bpcgbnkhw735x" path="res://Assets/School assets/ps1_style_patient_sheet_with_clipboard.glb" id="1_2bnrw"]
 [ext_resource type="Script" path="res://Assets/School assets/notepad.gd" id="1_t4axk"]
+[ext_resource type="Texture2D" uid="uid://ccfu5671uew8f" path="res://Assets/School assets/ps1_style_patient_sheet_with_clipboard_0.png" id="3_j010e"]
 [ext_resource type="PackedScene" uid="uid://do4rxjcwc3c2t" path="res://Player/log.tscn" id="3_tnpyw"]
+[ext_resource type="Shader" path="res://Player/highlighter.gdshader" id="4_g1xh8"]
+[ext_resource type="Texture2D" uid="uid://csqob4ot7ald7" path="res://Assets/School assets/ps1_style_patient_sheet_with_clipboard_1.png" id="4_ukr16"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kxlt2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4blx"]
+render_priority = 0
+shader = ExtResource("4_g1xh8")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 3.0
+shader_parameter/shine_width = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24a8m"]
+resource_name = "Metal"
+next_pass = SubResource("ShaderMaterial_a4blx")
+cull_mode = 2
+albedo_texture = ExtResource("3_j010e")
+roughness = 0.892971
+normal_enabled = true
+normal_texture = ExtResource("4_ukr16")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k2b3k"]
+_surfaces = [{
+"aabb": AABB(-3.78581, -5.25661, 0, 7.57161, 10.5132, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAACAAEAAAADAAIA"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qkpywDA2qMAAAAAAqkpyQDA2qMAAAAAAqkpyQDA2qEAAAAAAqkpywDA2qEAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rgxxw"]
+resource_name = "Sketchfab_Scene_Paper_Metal_0"
+_surfaces = [{
+"aabb": AABB(-3.78581, -5.25661, 0, 7.57161, 10.5132, 1e-05),
+"attribute_data": PackedByteArray("KIZ8P/oSJD8ohnw/ML5+P4JC/T4yvn4/gkL9PvwSJD8="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAACAAEAAAADAAIA"),
+"material": SubResource("StandardMaterial3D_24a8m"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qkpywDA2qMAAAAAAqkpyQDA2qMAAAAAAqkpyQDA2qEAAAAAAqkpywDA2qEAAAAAA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AIA=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_k2b3k")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_emasp"]
 size = Vector3(0.20752, 0.343811, 0.0141602)
 
 [node name="Notepad1" type="Node3D"]
@@ -13,11 +65,14 @@ textrange = 4
 
 [node name="Notepad" parent="." instance=ExtResource("1_2bnrw")]
 
+[node name="Paper_Metal_0" parent="Notepad/Sketchfab_model/42f8b6f1468048df80e4b1091129e6c4_fbx/RootNode/Clipboard/Paper" index="0"]
+mesh = SubResource("ArrayMesh_rgxxw")
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, -0.00576782, -0.00583684)
-shape = SubResource("BoxShape3D_kxlt2")
+shape = SubResource("BoxShape3D_emasp")
 
 [node name="Log1" parent="." instance=ExtResource("3_tnpyw")]
 visible = false

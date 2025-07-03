@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkjf62n5dnvy0"]
+
+[ext_resource type="Texture2D" uid="uid://bqyuykehqs2ac" path="res://Assets/Textures/Horror_Wall_14-128x128.png" id="1_saloq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4m0fk"]
+albedo_texture = ExtResource("1_saloq")
+uv1_scale = Vector3(1.55, 1.55, 1.55)
+texture_filter = 0
+
+[node name="Classroom 2" type="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+flip_faces = true
+size = Vector3(28, 4, 12)
+material = SubResource("StandardMaterial3D_4m0fk")

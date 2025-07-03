@@ -26,7 +26,10 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "for now gabagool muheheehe although it is supposed to be
-cool for now this is all you get"
+text = "Pity that soul which wars through the infancy of adulthood.
+Pity that soul which remains silent through the birth of personality.
+Pity that soul which thirsts for power before peace through a
+period of youth.
+For those who deny the joy of childhood will never have it again."
 label_settings = SubResource("LabelSettings_ipkec")
 horizontal_alignment = 1

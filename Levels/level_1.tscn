@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://5s4lirks588f"]
+[gd_scene load_steps=48 format=4 uid="uid://5s4lirks588f"]
 
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
 [ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_aiqgl"]
@@ -19,9 +19,14 @@
 [ext_resource type="Texture2D" uid="uid://b7bfup4t67w2i" path="res://Assets/Bathroom assets/Tiles128.png" id="13_slhq4"]
 [ext_resource type="PackedScene" uid="uid://o06oeggx0m4f" path="res://Assets/School assets/Closet/closet.tscn" id="14_hfcsj"]
 [ext_resource type="PackedScene" uid="uid://cne3bayp4yhv4" path="res://Assets/School assets/Drawers/drawer.tscn" id="18_qoh02"]
-[ext_resource type="PackedScene" uid="uid://binyw318nkff4" path="res://Player/notepad.tscn" id="19_vr6m4"]
+[ext_resource type="Script" path="res://Assets/School assets/notepad.gd" id="20_jxyw5"]
+[ext_resource type="PackedScene" uid="uid://bpcgbnkhw735x" path="res://Assets/School assets/ps1_style_patient_sheet_with_clipboard.glb" id="21_3mti6"]
 [ext_resource type="Texture2D" uid="uid://c1i1xwm5ojmpt" path="res://Assets/Background Images/dark-forest_pixelated_and_cropped.jpg" id="21_lue2y"]
+[ext_resource type="Texture2D" uid="uid://ccfu5671uew8f" path="res://Assets/School assets/ps1_style_patient_sheet_with_clipboard_0.png" id="22_vhcox"]
+[ext_resource type="Shader" path="res://Player/highlighter.gdshader" id="23_8tpfv"]
 [ext_resource type="PackedScene" uid="uid://bqu78mwqsbgry" path="res://Assets/Environment assets/window_with_rain.tscn" id="23_10bmo"]
+[ext_resource type="Texture2D" uid="uid://csqob4ot7ald7" path="res://Assets/School assets/ps1_style_patient_sheet_with_clipboard_1.png" id="24_hvxn2"]
+[ext_resource type="PackedScene" uid="uid://do4rxjcwc3c2t" path="res://Player/log.tscn" id="25_n8e8f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jwx28"]
 sky_top_color = Color(0.0439255, 0.0619628, 0.0870453, 1)
@@ -74,6 +79,110 @@ texture_filter = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcv56"]
 albedo_texture = ExtResource("13_slhq4")
 uv1_scale = Vector3(1.765, 1.765, 1.765)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_70msq"]
+render_priority = 0
+shader = ExtResource("23_8tpfv")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 3.0
+shader_parameter/shine_width = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mjbs"]
+resource_name = "Metal"
+next_pass = SubResource("ShaderMaterial_70msq")
+cull_mode = 2
+albedo_texture = ExtResource("22_vhcox")
+roughness = 0.892971
+normal_enabled = true
+normal_texture = ExtResource("24_hvxn2")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lxnah"]
+_surfaces = [{
+"aabb": AABB(-3.78581, -5.25661, 0, 7.57161, 10.5132, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAACAAEAAAADAAIA"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qkpywDA2qMAAAAAAqkpyQDA2qMAAAAAAqkpyQDA2qEAAAAAAqkpywDA2qEAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_idc8d"]
+resource_name = "Sketchfab_Scene_Paper_Metal_0"
+_surfaces = [{
+"aabb": AABB(-3.78581, -5.25661, 0, 7.57161, 10.5132, 1e-05),
+"attribute_data": PackedByteArray("KIZ8P/oSJD8ohnw/ML5+P4JC/T4yvn4/gkL9PvwSJD8="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAACAAEAAAADAAIA"),
+"material": SubResource("StandardMaterial3D_5mjbs"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qkpywDA2qMAAAAAAqkpyQDA2qMAAAAAAqkpyQDA2qEAAAAAAqkpywDA2qEAAAAAA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AIA=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lxnah")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kxlt2"]
+size = Vector3(0.20752, 0.343811, 0.0141602)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a4blx"]
+render_priority = 0
+shader = ExtResource("23_8tpfv")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 1.0
+shader_parameter/shine_speed = 3.0
+shader_parameter/shine_width = 3.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24a8m"]
+resource_name = "Metal"
+next_pass = SubResource("ShaderMaterial_a4blx")
+cull_mode = 2
+albedo_texture = ExtResource("22_vhcox")
+roughness = 0.892971
+normal_enabled = true
+normal_texture = ExtResource("24_hvxn2")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k2b3k"]
+_surfaces = [{
+"aabb": AABB(-3.78581, -5.25661, 0, 7.57161, 10.5132, 1e-05),
+"format": 34359742465,
+"index_count": 6,
+"index_data": PackedByteArray("AAACAAEAAAADAAIA"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qkpywDA2qMAAAAAAqkpyQDA2qMAAAAAAqkpyQDA2qEAAAAAAqkpywDA2qEAAAAAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_rgxxw"]
+resource_name = "Sketchfab_Scene_Paper_Metal_0"
+_surfaces = [{
+"aabb": AABB(-3.78581, -5.25661, 0, 7.57161, 10.5132, 1e-05),
+"attribute_data": PackedByteArray("KIZ8P/oSJD8ohnw/ML5+P4JC/T4yvn4/gkL9PvwSJD8="),
+"format": 34359742487,
+"index_count": 6,
+"index_data": PackedByteArray("AAACAAEAAAADAAIA"),
+"material": SubResource("StandardMaterial3D_24a8m"),
+"name": "Metal",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("qkpywDA2qMAAAAAAqkpyQDA2qMAAAAAAqkpyQDA2qEAAAAAAqkpywDA2qEAAAAAA/3//f/9/AID/f/9//38AgP9//3//fwCA/3//f/9/AIA=")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_k2b3k")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_emasp"]
+size = Vector3(0.20752, 0.343811, 0.0141602)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8wck7"]
 albedo_texture = ExtResource("21_lue2y")
@@ -228,7 +337,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, -0.13036, 11)
 size = Vector3(1.5, 1.5, 1)
 
 [node name="Player" parent="." instance=ExtResource("5_6w0x4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2635, 0.968681, 9.49587)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4472, 0.968681, 3.2065)
 
 [node name="Classroom2" type="Node3D" parent="."]
 
@@ -484,8 +593,63 @@ transform = Transform3D(-1.17225e-07, 0, -1, 0, 1, 0, 1, 0, -1.17225e-07, 29.251
 [node name="Drawer2" parent="." instance=ExtResource("18_qoh02")]
 transform = Transform3D(-1.17225e-07, 0, -1, 0, 1, 0, 1, 0, -1.17225e-07, -12.4787, 0, 5)
 
-[node name="Notepad" parent="." instance=ExtResource("19_vr6m4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.5462, 1.06591, -1.09989)
+[node name="Introspection" type="Node3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.47642, 0.264931, 0, -0.264931, 1.47642, -17.5347, 1.45498, -17.5055)
+script = ExtResource("20_jxyw5")
+textrange = 4
+
+[node name="Notepad" parent="Introspection" instance=ExtResource("21_3mti6")]
+
+[node name="Paper_Metal_0" parent="Introspection/Notepad/Sketchfab_model/42f8b6f1468048df80e4b1091129e6c4_fbx/RootNode/Clipboard/Paper" index="0"]
+mesh = SubResource("ArrayMesh_idc8d")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Introspection"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Introspection/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, -0.00576782, -0.00583684)
+shape = SubResource("BoxShape3D_kxlt2")
+
+[node name="Log1" parent="Introspection" instance=ExtResource("25_n8e8f")]
+visible = false
+
+[node name="Label" parent="Introspection/Log1/CenterContainer/VBoxContainer" index="0"]
+text = "Entombed in an ivory tower of thine own craft,
+sinner shalt thou be branded lest thee take to arms the bird of thought,
+which calls out to thee, \"Bespeak your own record;
+release yourself from the abyss.\"
+And if so achieved,
+keepsake thy goodness and become a person kindred to angels."
+
+[node name="ClosedArea" type="CSGBox3D" parent="Introspection"]
+transform = Transform3D(1, 0, 0, 0, 0.976642, -0.214872, 0, 0.214872, 0.976642, -7.54543, -3.33389, 19.7467)
+visible = false
+use_collision = true
+size = Vector3(2.61969, 2.32477, 0.752441)
+
+[node name="Violence" type="Node3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, 1.5, 0, -1.5, -6.55671e-08, 44.0271, 1.045, 1.89919)
+script = ExtResource("20_jxyw5")
+textrange = 4
+
+[node name="Notepad" parent="Violence" instance=ExtResource("21_3mti6")]
+
+[node name="Paper_Metal_0" parent="Violence/Notepad/Sketchfab_model/42f8b6f1468048df80e4b1091129e6c4_fbx/RootNode/Clipboard/Paper" index="0"]
+mesh = SubResource("ArrayMesh_rgxxw")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Violence"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Violence/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, -0.00576782, -0.00583684)
+shape = SubResource("BoxShape3D_emasp")
+
+[node name="Log1" parent="Violence" instance=ExtResource("25_n8e8f")]
+visible = false
+
+[node name="ClosedArea" type="CSGBox3D" parent="Violence"]
+transform = Transform3D(-4.37114e-08, -1.42109e-14, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, 1.61215e-14, -42.1383, -5.30185, 0.465718)
+visible = false
+use_collision = true
+size = Vector3(2.61969, 2.32477, 0.752441)
 
 [node name="Raineffects" type="Node3D" parent="."]
 
@@ -514,6 +678,7 @@ transform = Transform3D(-1, 3.82137e-15, -8.74228e-08, 8.74228e-08, 4.37114e-08,
 skeleton = NodePath("../..")
 
 [node name="Images" type="Node3D" parent="."]
+visible = false
 
 [node name="ForestImage" type="MeshInstance3D" parent="Images"]
 transform = Transform3D(-56.25, 2.56987e-14, -6.92825e-07, 4.91753e-06, 2.93959e-07, -7.925, 0, -6.725, -3.46413e-07, 40.6963, 10.3928, 28.2225)
@@ -534,3 +699,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(2.45877e-06, -6.725, -3.46413e-07, 4.91753e-06, 2.93959e-07, -7.925, 56.25, 2.93959e-07, 6.92825e-07, 60.6963, 10.3928, 18.5605)
 mesh = SubResource("PlaneMesh_xim5g")
 skeleton = NodePath("../..")
+
+[editable path="Introspection/Notepad"]
+[editable path="Introspection/Log1"]
+[editable path="Violence/Notepad"]
