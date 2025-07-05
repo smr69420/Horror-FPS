@@ -33,4 +33,3 @@ void fragment() {
     ALBEDO = mix(vec3(0.0), rain_color.rgb, drop * fade * drop_width);
     ALPHA = drop * fade * drop_width;
 }
-

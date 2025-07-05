@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://5s4lirks588f"]
+[gd_scene load_steps=53 format=4 uid="uid://5s4lirks588f"]
 
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
 [ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_aiqgl"]
@@ -27,6 +27,9 @@
 [ext_resource type="PackedScene" uid="uid://bqu78mwqsbgry" path="res://Assets/Environment assets/window_with_rain.tscn" id="23_10bmo"]
 [ext_resource type="Texture2D" uid="uid://csqob4ot7ald7" path="res://Assets/School assets/ps1_style_patient_sheet_with_clipboard_1.png" id="24_hvxn2"]
 [ext_resource type="PackedScene" uid="uid://do4rxjcwc3c2t" path="res://Player/log.tscn" id="25_n8e8f"]
+[ext_resource type="Script" path="res://Levels/next_level.gd" id="28_50qhr"]
+[ext_resource type="Script" path="res://Levels/audio.gd" id="29_dcx51"]
+[ext_resource type="AudioStream" uid="uid://b7yrwbqmrdpil" path="res://Audio/zapsplat_pack_rain_on_roof_and_trees_mp3/zapsplat_nature_rain_house_roof_ext_heavy_slight_increase_half_way_112301.mp3" id="29_x82g5"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jwx28"]
 sky_top_color = Color(0.0439255, 0.0619628, 0.0870453, 1)
@@ -191,6 +194,12 @@ albedo_texture = ExtResource("21_lue2y")
 material = SubResource("StandardMaterial3D_8wck7")
 size = Vector2(2.255, 6.03)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_atcn4"]
+size = Vector3(4.07631, 1, 8.62598)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dmwys"]
+size = Vector3(84.73, 0.001, 3.97872)
+
 [node name="Level1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -337,7 +346,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, -0.13036, 11)
 size = Vector3(1.5, 1.5, 1)
 
 [node name="Player" parent="." instance=ExtResource("5_6w0x4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4472, 0.968681, 3.2065)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27665, 0.968681, 0.765681)
 
 [node name="Classroom2" type="Node3D" parent="."]
 
@@ -699,6 +708,30 @@ skeleton = NodePath("../..")
 transform = Transform3D(2.45877e-06, -6.725, -3.46413e-07, 4.91753e-06, 2.93959e-07, -7.925, 56.25, 2.93959e-07, 6.92825e-07, 60.6963, 10.3928, 18.5605)
 mesh = SubResource("PlaneMesh_xim5g")
 skeleton = NodePath("../..")
+
+[node name="NextLevel" type="Area3D" parent="."]
+script = ExtResource("28_50qhr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NextLevel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.8312, -0.399356, 46.6344)
+shape = SubResource("BoxShape3D_atcn4")
+
+[node name="Audio" type="Node3D" parent="."]
+script = ExtResource("29_dcx51")
+
+[node name="Rain" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource("29_x82g5")
+
+[node name="Hallwaydetection" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.466881, 10.0528)
+
+[node name="Detection" type="CollisionShape3D" parent="Hallwaydetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1849, -0.166177, -0.0883999)
+shape = SubResource("BoxShape3D_dmwys")
+
+[connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
+[connection signal="body_entered" from="Hallwaydetection" to="Audio" method="_on_hallwaydetection_body_entered"]
+[connection signal="body_exited" from="Hallwaydetection" to="Audio" method="_on_hallwaydetection_body_exited"]
 
 [editable path="Introspection/Notepad"]
 [editable path="Introspection/Log1"]
