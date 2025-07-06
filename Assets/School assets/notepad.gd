@@ -13,6 +13,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var queue=0
 	var distance=global_position.distance_to(player.global_position)
 	#print("Distance to player:", distance)
 	if Input.is_action_pressed("exit"):
@@ -20,6 +21,8 @@ func _process(delta: float) -> void:
 	if distance<=textrange:
 		if Input.is_action_just_pressed("interact"):
 			log.visible=true
-			closed_area.queue_free()
+			if queue==0:
+				closed_area.queue_free()
+				queue=1
 		if Input.is_action_pressed("exit"):
 				log.visible=false

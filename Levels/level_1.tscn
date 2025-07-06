@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://5s4lirks588f"]
+[gd_scene load_steps=54 format=4 uid="uid://5s4lirks588f"]
 
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
 [ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_aiqgl"]
@@ -198,7 +198,10 @@ size = Vector2(2.255, 6.03)
 size = Vector3(4.07631, 1, 8.62598)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dmwys"]
-size = Vector3(84.73, 0.001, 3.97872)
+size = Vector3(67.9195, 0.001, 3.97872)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5e57y"]
+size = Vector3(27.3421, 1, 12.8642)
 
 [node name="Level1" type="Node3D"]
 
@@ -346,7 +349,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, -0.13036, 11)
 size = Vector3(1.5, 1.5, 1)
 
 [node name="Player" parent="." instance=ExtResource("5_6w0x4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.27665, 0.968681, 0.765681)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.0508, 0.968681, 10.1706)
 
 [node name="Classroom2" type="Node3D" parent="."]
 
@@ -726,8 +729,16 @@ stream = ExtResource("29_x82g5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.466881, 10.0528)
 
 [node name="Detection" type="CollisionShape3D" parent="Hallwaydetection"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.1849, -0.166177, -0.0883999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.5902, -0.166177, -0.0883999)
 shape = SubResource("BoxShape3D_dmwys")
+
+[node name="Classroom2Detection" type="CollisionShape3D" parent="Hallwaydetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0294476, -0.452775, -9.24655)
+shape = SubResource("BoxShape3D_5e57y")
+
+[node name="Classroom1Detection" type="CollisionShape3D" parent="Hallwaydetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.927, -0.452775, -8.17483)
+shape = SubResource("BoxShape3D_5e57y")
 
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_entered" from="Hallwaydetection" to="Audio" method="_on_hallwaydetection_body_entered"]

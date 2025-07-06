@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://dnnq8442ut5he"]
+[gd_scene load_steps=20 format=4 uid="uid://dnnq8442ut5he"]
 
 [ext_resource type="Script" path="res://Assets/Eye asset/final_eye.gd" id="1_f2oj2"]
 [ext_resource type="PackedScene" uid="uid://bu6j6l0rwy2yf" path="res://Assets/Eye asset/eye_free_model_3d_by_oscar_creativo.glb" id="1_rhrlx"]
 [ext_resource type="Shader" path="res://Assets/Bathroom assets/ps1_shader.gdshader" id="2_37lve"]
 [ext_resource type="Texture2D" uid="uid://biagbdt6ggjyt" path="res://Assets/Eye asset/eye_free_model_3d_by_oscar_creativo_0.png" id="3_a7ohr"]
 [ext_resource type="Texture2D" uid="uid://bsqv860n55qdf" path="res://Assets/Eye asset/eye_free_model_3d_by_oscar_creativo_1.jpg" id="3_hytku"]
+[ext_resource type="AudioStream" uid="uid://db25r2qro3ydg" path="res://Audio/crowd-worried-90368.mp3" id="6_5k5sk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pf5f"]
 resource_name = "CORNEA"
@@ -258,6 +259,11 @@ shape = SubResource("BoxShape3D_06o2g")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_5k5sk")
+autoplay = true
+max_distance = 6.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
