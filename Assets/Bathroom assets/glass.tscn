@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://civ68jltbumc6"]
+[gd_scene load_steps=8 format=3 uid="uid://civ68jltbumc6"]
 
 [ext_resource type="PackedScene" uid="uid://c6nnube2taf0y" path="res://Assets/Bathroom assets/BrokenGlass.fbx" id="1_tyooe"]
 [ext_resource type="Script" path="res://Assets/Bathroom assets/glass.gd" id="2_tkxfd"]
+[ext_resource type="AudioStream" uid="uid://bwff2fu40dty" path="res://Audio/glass-panel-shattering.wav" id="3_kh1ky"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yd1y1"]
 size = Vector3(1.97, 2, 0.05)
@@ -549,5 +550,8 @@ libraries = {
 [node name="Timer" type="Timer" parent="." index="24"]
 wait_time = 0.45
 one_shot = true
+
+[node name="GlassShatteringAudio" type="AudioStreamPlayer" parent="." index="25"]
+stream = ExtResource("3_kh1ky")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

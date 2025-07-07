@@ -10,13 +10,15 @@ config_version=5
 
 [application]
 
-config/name="FPS Unfinal"
+config/name="Still dk the name"
 run/main_scene="res://Levels/level_1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
+window/size/viewport_width=447
+window/size/viewport_height=240
 window/size/mode=3
 window/stretch/mode="viewport"
 

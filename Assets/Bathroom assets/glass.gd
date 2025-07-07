@@ -4,6 +4,8 @@ extends Node3D
 @onready var rigid_body=$RigidBody
 @onready var glass_shattering_animation=$AnimationPlayer
 @onready var timer=$Timer
+@onready var audio:AudioStreamPlayer=$GlassShatteringAudio
+@onready var knocking:AudioStreamPlayer3D=$"../Stalls/Knocking"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -16,6 +18,7 @@ func _process(delta: float) -> void:
 
 func enable_gravity() -> void:
 	glass_shattering_animation.play("glass_shattering")
+	audio.play()
 	timer.start()
 
 

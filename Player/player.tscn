@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cksbitwe7x8h3"]
+[gd_scene load_steps=9 format=3 uid="uid://cksbitwe7x8h3"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_oejln"]
 [ext_resource type="Script" path="res://Player/SmoothCamera.gd" id="2_3tryo"]
 [ext_resource type="Script" path="res://Player/Crosshair.gd" id="3_e4a8x"]
 [ext_resource type="PackedScene" uid="uid://cmb531kpaffyu" path="res://Assets/Gun asset/gun_with_timer.tscn" id="3_pp6ke"]
+[ext_resource type="AudioStream" uid="uid://cmx8rahyu6t3s" path="res://Audio/gunshot-trimmed.mp3" id="4_6mgb8"]
 [ext_resource type="PackedScene" uid="uid://ctnbf8u6cydkn" path="res://Player/game_over.tscn" id="5_maskr"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bomeq"]
@@ -28,6 +29,9 @@ script = ExtResource("2_3tryo")
 
 [node name="Gun with cooldown" parent="CameraPivot/SmoothCamera" instance=ExtResource("3_pp6ke")]
 
+[node name="Gunshot" type="AudioStreamPlayer" parent="CameraPivot/SmoothCamera/Gun with cooldown"]
+stream = ExtResource("4_6mgb8")
+
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraPivot/SmoothCamera"]
 remote_path = NodePath("../../../SubViewportContainer/SubViewport/WeaponCamera")
 
@@ -47,7 +51,7 @@ stretch = true
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(1152, 648)
+size = Vector2i(447, 240)
 render_target_update_mode = 4
 
 [node name="WeaponCamera" type="Camera3D" parent="SubViewportContainer/SubViewport"]

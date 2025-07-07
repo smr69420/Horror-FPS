@@ -4,6 +4,7 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_ipkec"]
 font = ExtResource("1_wx56l")
+font_size = 6
 
 [node name="Log1" type="Control"]
 layout_mode = 3

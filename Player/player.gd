@@ -1,5 +1,5 @@
 extends CharacterBody3D
-const SPEED = 5.0
+const SPEED = 3.5
 signal stop_shooting
 
 @export var jump_height: float = 1.0
@@ -60,7 +60,7 @@ func _input(event: InputEvent) -> void:
 	if stop_taking_input==false:
 		if event is InputEventMouseMotion:
 			if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-				mouse_motion = -event.relative * 0.002
+				mouse_motion = -event.relative * 0.0025
 		#if event.is_action_pressed("ui_cancel"):
 			#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		

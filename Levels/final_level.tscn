@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dor5cg6m65fd8"]
+[gd_scene load_steps=11 format=3 uid="uid://dor5cg6m65fd8"]
 
 [ext_resource type="PackedScene" uid="uid://bkjf62n5dnvy0" path="res://Levels/classroom.tscn" id="1_rsl6y"]
 [ext_resource type="PackedScene" uid="uid://dt57jsnmprqxm" path="res://Enemy/enemy.tscn" id="2_rcmc2"]
 [ext_resource type="PackedScene" uid="uid://cksbitwe7x8h3" path="res://Player/player.tscn" id="3_rf5jh"]
+[ext_resource type="Script" path="res://Levels/final_area.gd" id="4_ls4m8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fbpj7"]
 sky_top_color = Color(0.0439255, 0.0619628, 0.0870453, 1)
@@ -26,6 +27,9 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fv1al"]
+size = Vector3(3.84891, 1, 3.79028)
 
 [node name="Final_level" type="Node3D"]
 
@@ -51,7 +55,16 @@ use_collision = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="FinalArea" type="CSGBox3D" parent="NavigationRegion3D/Classroom 2/CSGCombiner3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0404, 0, 1.0267)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.6941, 0, 1.0267)
 flip_faces = true
-size = Vector3(6.50879, 4, 3.05231)
+size = Vector3(15.8162, 4, 3.05231)
 material = SubResource("StandardMaterial3D_3dhh1")
+script = ExtResource("4_ls4m8")
+
+[node name="ExitDetection" type="Area3D" parent="NavigationRegion3D/Classroom 2/CSGCombiner3D/FinalArea"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Classroom 2/CSGCombiner3D/FinalArea/ExitDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.03186, -1.75868, 0.469604)
+shape = SubResource("BoxShape3D_fv1al")
+
+[connection signal="body_entered" from="NavigationRegion3D/Classroom 2/CSGCombiner3D/FinalArea/ExitDetection" to="NavigationRegion3D/Classroom 2/CSGCombiner3D/FinalArea" method="_on_exit_detection_body_entered"]

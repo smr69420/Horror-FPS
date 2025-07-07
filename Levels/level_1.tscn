@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://5s4lirks588f"]
+[gd_scene load_steps=57 format=4 uid="uid://5s4lirks588f"]
 
 [ext_resource type="PackedScene" uid="uid://by6o0qusaxsqp" path="res://Assets/walls.tscn" id="1_tbjnt"]
 [ext_resource type="Shader" path="res://Assets/Textures/Shadermixing.gdshader" id="2_aiqgl"]
@@ -12,7 +12,9 @@
 [ext_resource type="PackedScene" uid="uid://civ68jltbumc6" path="res://Assets/Bathroom assets/glass.tscn" id="7_gpmwx"]
 [ext_resource type="PackedScene" uid="uid://ehpcctghu78g" path="res://Assets/Bathroom assets/Stalls.tscn" id="8_goji4"]
 [ext_resource type="PackedScene" uid="uid://c5apvpjsn0b8r" path="res://Assets/Bathroom assets/tiles.tscn" id="10_t8ffv"]
+[ext_resource type="AudioStream" uid="uid://ck5dl0ahpxnfb" path="res://Audio/door-knocking.wav" id="11_fjjom"]
 [ext_resource type="PackedScene" uid="uid://dhbr0mdnnjuyl" path="res://Assets/School assets/Desk/desk.tscn" id="11_iny52"]
+[ext_resource type="Script" path="res://Assets/Bathroom assets/stalls.gd" id="11_ucdnm"]
 [ext_resource type="PackedScene" uid="uid://birwwnrvq45a" path="res://Assets/School assets/Chair/chair.tscn" id="12_ipm58"]
 [ext_resource type="PackedScene" uid="uid://dnnq8442ut5he" path="res://Assets/Eye asset/final_eye.tscn" id="13_ddsvr"]
 [ext_resource type="PackedScene" uid="uid://bqsm81j71tfh0" path="res://Assets/School assets/Chalkboard.tscn" id="13_hf8mk"]
@@ -78,6 +80,9 @@ texture_filter = 0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dabom"]
 albedo_texture = ExtResource("5_if6t3")
 texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bv65"]
+size = Vector3(14.2114, 1, 6.23383)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcv56"]
 albedo_texture = ExtResource("13_slhq4")
@@ -323,6 +328,19 @@ top_level = true
 [node name="Stalls" parent="Classroom/CSGCombiner3D/Bathroom" instance=ExtResource("8_goji4")]
 transform = Transform3D(-0.0355448, 0, -0.999368, 0, 1, 0, 0.999368, 0, -0.0355448, -8.60735, -0.0313187, -15.7473)
 top_level = true
+script = ExtResource("11_ucdnm")
+
+[node name="Knocking" type="AudioStreamPlayer3D" parent="Classroom/CSGCombiner3D/Bathroom/Stalls"]
+transform = Transform3D(1, 0, -2.23517e-08, 0, 1, 0, 1.86265e-08, 0, 1, -0.581399, 1.01848, 2.25358)
+stream = ExtResource("11_fjjom")
+max_distance = 20.0
+
+[node name="BathroomDetection" type="Area3D" parent="Classroom/CSGCombiner3D/Bathroom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.95939, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Classroom/CSGCombiner3D/Bathroom/BathroomDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136719, 0.0021925, 0.0206604)
+shape = SubResource("BoxShape3D_7bv65")
 
 [node name="Window" type="CSGBox3D" parent="Classroom/CSGCombiner3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39, -0.13036, 11)
@@ -349,7 +367,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51, -0.13036, 11)
 size = Vector3(1.5, 1.5, 1)
 
 [node name="Player" parent="." instance=ExtResource("5_6w0x4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.0508, 0.968681, 10.1706)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9188, 0.968681, -12.004)
 
 [node name="Classroom2" type="Node3D" parent="."]
 
@@ -740,6 +758,7 @@ shape = SubResource("BoxShape3D_5e57y")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.927, -0.452775, -8.17483)
 shape = SubResource("BoxShape3D_5e57y")
 
+[connection signal="body_exited" from="Classroom/CSGCombiner3D/Bathroom/BathroomDetection" to="Classroom/CSGCombiner3D/Bathroom/Stalls" method="_on_bathroom_detection_body_exited"]
 [connection signal="body_entered" from="NextLevel" to="NextLevel" method="_on_body_entered"]
 [connection signal="body_entered" from="Hallwaydetection" to="Audio" method="_on_hallwaydetection_body_entered"]
 [connection signal="body_exited" from="Hallwaydetection" to="Audio" method="_on_hallwaydetection_body_exited"]

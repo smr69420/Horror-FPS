@@ -1,6 +1,7 @@
 extends Node3D
 
 var player
+var queue=0
 
 @export var textrange:=1
 
@@ -13,7 +14,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var queue=0
 	var distance=global_position.distance_to(player.global_position)
 	#print("Distance to player:", distance)
 	if Input.is_action_pressed("exit"):
@@ -23,6 +23,6 @@ func _process(delta: float) -> void:
 			log.visible=true
 			if queue==0:
 				closed_area.queue_free()
-				queue=1
+				queue=queue+1
 		if Input.is_action_pressed("exit"):
 				log.visible=false
