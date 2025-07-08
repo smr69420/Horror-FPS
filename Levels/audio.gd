@@ -2,6 +2,7 @@ extends Node3D
 @onready var rain=$Rain
 @onready var rain_bus_index = AudioServer.get_bus_index("Rain")
 @onready var window:Node3D=$"../Raineffects/window with rain6"
+@onready var area:Area3D=$"../Hallwaydetection"
 
 var fading_out=false
 var fading_in
@@ -25,10 +26,12 @@ func _process(delta: float) -> void:
 	elif fading_in:
 		var new_volume=lerp(current_volume,-10.0,delta*2.0)
 		AudioServer.set_bus_volume_db(rain_bus_index, new_volume)
+	
+	if not area.get_overlapping_bodies().has(player):
+		fading_out=true
 
-
-func _on_hallwaydetection_body_exited(body: Node3D) -> void:
-	fading_out=true
+#func _on_hallwaydetection_body_exited(body: Node3D) -> void:
+	#fading_out=true
 
 
 func _on_hallwaydetection_body_entered(body: Node3D) -> void:
