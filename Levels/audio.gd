@@ -27,12 +27,12 @@ func _process(delta: float) -> void:
 		var new_volume=lerp(current_volume,-10.0,delta*2.0)
 		AudioServer.set_bus_volume_db(rain_bus_index, new_volume)
 	
-	if not area.get_overlapping_bodies().has(player):
-		fading_out=true
+	#if not area.get_overlapping_bodies().has(player):
+		#fading_out=true
 
-#func _on_hallwaydetection_body_exited(body: Node3D) -> void:
-	#fading_out=true
-
+func _on_hallwaydetection_body_exited(body: Node3D) -> void:
+	fading_out=true
+	fading_in=false
 
 func _on_hallwaydetection_body_entered(body: Node3D) -> void:
 	fading_out=false

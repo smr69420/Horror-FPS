@@ -2,14 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1w071u7blpfw"
+uid="uid://bovbtecn2yrqb"
 path.s3tc="res://.godot/imported/Industrial_exterior_v2_Liquid_reservoir_2.png-7c919932b7fab39476ad5bb428d2d1fb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "0046b22ab9399dd519084659154fc922"
 }
 
 [deps]

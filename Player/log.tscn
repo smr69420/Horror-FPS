@@ -1,8 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://do4rxjcwc3c2t"]
+[gd_scene load_steps=4 format=3 uid="uid://do4rxjcwc3c2t"]
 
 [ext_resource type="FontFile" uid="uid://bj3eiqyuffh8i" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="1_wx56l"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ipkec"]
+font = ExtResource("1_wx56l")
+font_size = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_2x8oo"]
 font = ExtResource("1_wx56l")
 font_size = 6
 
@@ -33,4 +37,31 @@ Pity that soul which thirsts for power before peace through a
 period of youth.
 For those who deny the joy of childhood will never have it again."
 label_settings = SubResource("LabelSettings_ipkec")
+horizontal_alignment = 1
+
+[node name="Interaction" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 0)
+
+[node name="Label" type="Label" parent="Interaction"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -7.0
+offset_right = 1.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press esc to hide"
+label_settings = SubResource("LabelSettings_2x8oo")
 horizontal_alignment = 1
