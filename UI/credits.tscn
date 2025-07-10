@@ -1,0 +1,143 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1n3dmvnspxwn"]
+
+[ext_resource type="FontFile" uid="uid://bj3eiqyuffh8i" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="1_o4up4"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_right = -18.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("1_o4up4")
+theme_override_font_sizes/normal_font_size = 10
+bbcode_enabled = true
+text = "
+
+
+
+
+
+
+
+
+
+
+
+[color=black][center][font_size=16] 	 Game by smr68419
+[/font_size]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Writing consultant:
+Pranav Chandrashekar
+
+Game testers:
+Saikavin S
+Pranav Chandrashekar
+
+3D models:
+
+[font_size=6]The following were used under the [CC BY-SA 4.0 license]:
+
+
+    \"Silent Hill Sink\" by Yaiyeondurising
+
+    \"Silent Hill 2 Urinal Toilet Dirty\" by Yaiyeondurising
+
+    \"Silent Hill toilet with seat dirty\" by Yaiyeondurising
+
+    \"Silent Hill toilet with no seat dirty\" by Yaiyeondurising
+
+    \"Silent Hill Dirty Toilet With Seat And Lid\" by Yaiyeondurising
+
+    \"Silent Hill Dirty Toilet With Seat And Lid\" by Yaiyeondurising
+
+
+The following were used under the [CC BY 4.0 license]:
+
+
+    \"Toilet Partition\" by Slepa
+
+\"PSX Chair\" by Charckes
+
+\"PSX TV Stand\" by Charckes
+
+\"PSX Wooden Drawers\" by Charckes
+
+\"PSX Closet\" by Charckes
+
+\"Blackboard\" by Dandi8
+
+\"PS1 Style Patient Sheet With Clipboard\" by Jan_Strydom
+
+Eye by OSCAR CREATIVO
+
+\"Mannequin\" by freddy1231
+
+Other Contributions:
+
+    “Destructible Broken Glass” by ToastyCatStudios[/font_size]
+
+Shaders:
+
+[font_size=6]The following were used under the CC0 and MIT licenses:
+
+    \"PS1 Post-processing\" by Mighty Duke (CC0)
+
+    \"Item Highlighter\" by OzMaister (MIT) [/font_size]
+
+Audio:
+
+[font_size=6]Rain sound effects from zapsplat
+
+
+
+
+
+
+Special Thanks to Pranav A for motivating me
+
+
+
+
+
+
+Thank you for playing[/font_size]"
+fit_content = true
+scroll_following = true
+autowrap_mode = 0
